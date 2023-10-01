@@ -54,7 +54,7 @@ export default function ShoppingCart({}: Props) {
         </Box>
         <Box className='flex flex-col gap-8'>
             <HomePageCard title='From Your Wishlist (5)'>
-                <ProductCardList>
+                <ProductCardList columns={6}>
                     <ProductCard {...testProd} />
                     <ProductCard {...testProd} />
                     <ProductCard {...testProd} />
@@ -64,7 +64,7 @@ export default function ShoppingCart({}: Props) {
                 </ProductCardList>
             </HomePageCard>
             <HomePageCard title='You May Also Like'>
-                <ProductCardList>
+                <ProductCardList columns={6}>
                     <ProductCard {...testProd} />
                     <ProductCard {...testProd} />
                     <ProductCard {...testProd} />

@@ -135,13 +135,13 @@ export default function Product( product: ProductModel) {
       </Box> 
       {/* From The Same Store */}
       <HomePageCard title='FROM THE SAME STORE'>
-        <ProductCardList>
+        <ProductCardList columns={6}>
           <ProductCard {...testProd} /> 
         </ProductCardList>
       </HomePageCard>
       {/* You may also like */}
       <HomePageCard title='YOU MAY ALSO LIKE'>
-        <ProductCardList>
+        <ProductCardList columns={6}>
           <ProductCard {...testProd} /> 
         </ProductCardList>
       </HomePageCard>

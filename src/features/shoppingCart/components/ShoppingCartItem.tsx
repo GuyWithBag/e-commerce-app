@@ -10,13 +10,13 @@ type Props = {}
 export default function ShoppingCartItem({}: Props) {
   return (
     <Box className='flex flex-row bg-white'>
-        <Box className='flex flex-row gap-4]'>
+        <Box className='flex flex-row gap-4'>
             <Radio /> 
             <Image className=' w-32 h-32'/> 
             <Box className='flex flex-col justify-between'>
                 <Text>Name</Text>
                 {/* Why u no work properly huhu */}
-                <Box className='flex flex-row justify-between items-end bg-red-400'>
+                <Box className='flex flex-row justify-between items-end'>
                     <PriceView {...testProd} /> 
                     <Box className='flex flex-row gap-3'>
                         {/* 

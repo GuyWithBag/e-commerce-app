@@ -8,7 +8,7 @@ type Props = {
 export default function CategoryListItem({ title }: Props) {
   return (
     <ListItem>
-        <Text>{title}</Text>
+        <Text className='text-sm'>{title}</Text>
     </ListItem>
   )
 }

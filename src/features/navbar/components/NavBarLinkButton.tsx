@@ -1,18 +1,20 @@
 import { Link as ReactRouterLink } from 'react-router-dom'
-import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
+import { Link as ChakraLink, LinkProps, ButtonProps, Button } from '@chakra-ui/react'
 import React from 'react'
-import NavBarIconButton from './NavBarIconButton'
+import NavbarButton from './NavbarButton'
 
 type Props = {
-    ariaLabel: string, 
-    icon: React.ReactElement<any, string | React.JSXElementConstructor<any>> | undefined, 
-    to: string
-}
+    children: any, 
+    to: string, 
+} & ButtonProps 
 
-export default function NavBarLinkButton({ ariaLabel, icon, to }: Props) {
-  return ( 
-    <ChakraLink as={ReactRouterLink} to={to}> 
-        <NavBarIconButton ariaLabel={ariaLabel} icon={icon}/>
+export default function NavBarLinkButton({ children, to, variant }: Props) {
+  return (
+    <ChakraLink as={ReactRouterLink} to={to} >
+        <Button variant={variant}> 
+            {children}
+        </Button>
     </ChakraLink>
   )
 }
+

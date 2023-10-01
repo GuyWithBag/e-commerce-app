@@ -10,7 +10,7 @@ type Props = {}
 export default function JustForYou({}: Props) {
     return (
         <HomePageCard title='Just for you'>
-            <ProductsGridList>
+            <ProductsGridList columns={6}>
                 <ProductCard {...testProd}/>
                 <ProductCard {...testProd}/>
                 <ProductCard {...testProd}/>

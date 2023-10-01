@@ -4,7 +4,7 @@ import ShoppingCart from '../features/shoppingCart'
 
 type Props = {}
 
-export default function ShoppingCartpage({}: Props) {
+export default function ShoppingCartPage({}: Props) {
   return (
     <Box pt="pagePaddingTop" px="navbarPaddingX" >
       <ShoppingCart /> 

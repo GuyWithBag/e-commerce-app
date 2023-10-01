@@ -1,22 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from '@chakra-ui/react'
+import { Button, ButtonProps } from '@chakra-ui/react'
 
 type Props = {
-    text?: string, 
-    to: string, 
-    onPressed?: Function
-}
+    onPressed?: Function, 
+    children: any
+} & ButtonProps 
 
-export default function NavbarButton(props: Props) { 
-    if (props.onPressed != null) {
-        props.onPressed()
+export default function NavbarButton({ children, onPressed, variant }: Props) { 
+    if (onPressed != null) {
+        onPressed()
     }
     return (
-        <Button>
-            <Link to={props.to}>
-                {props.text}
-            </Link>
+        <Button variant={variant}> 
+            {children}
         </Button>
     )
 }

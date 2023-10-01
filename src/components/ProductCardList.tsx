@@ -2,12 +2,13 @@ import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 type Props = {
-    children: any
+    children: any, 
+    columns: number
 }
 
-export default function ProductCardList({ children }: Props) {
+export default function ProductCardList({ children, columns }: Props) {
   return (
-    <Box className='grid grid-cols-6 gap-2'>
+    <Box className={`grid grid-cols-${columns} gap-2`}>
         {children}
     </Box>
   )

@@ -1,9 +1,13 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
+import WishList from '../features/wishList'
 
 type Props = {}
 
 export default function WishListPage({}: Props) {
   return (
-    <div>WishListPage</div>
+    <Box pt="pagePaddingTop" px="navbarPaddingX" >
+      <WishList />
+    </Box>
   )
 }
