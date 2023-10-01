@@ -6,10 +6,10 @@ type Props = {}
 
 export default function Ratings({}: Props) {
   return (
-    <Box className='flex flex-row gap-1'>
+    <Box className='flex flex-row items-center gap-1'>
         <StarRatings rating={5} />
         <Text>1000 ratings</Text>
-        <Text>12k sold</Text>
+        <Text>| 12k sold</Text>
     </Box>
   )
 }

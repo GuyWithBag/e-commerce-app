@@ -1,7 +1,6 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import { ProductModel } from '../../data/productModel'
-import ProductCarousel from './components/ProductCarousel'
 import Details from './components/Details'
 import Variants from './components/Variants'
 import AddToCartButton from './components/AddToCartButton'
@@ -10,16 +9,25 @@ import Actions from './components/Actions'
 import PriceView from '../../components/PriceView'
 import BuyNowButton from './components/BuyNowButton'
 import StarRatings from '../../components/StarRatings'
+import ProductCard from '../../components/ProductCard'
+import { testProd } from '../../placeholder'
+import HomePageCard from '../../components/HomePageCard'
+import ProductCardList from '../../components/ProductCardList'
+import ChatNowButton from '../../components/ChatNowButton'
+import CompanyDetail from './components/CompanyDetail'
+import CompanyDetailTile from './components/CompanyDetailTile'
+import ViewShopButton from '../../components/ViewShopButton'
+import ImageCarousel from '../../components/imageCarousel'
 
 
 export default function Product( product: ProductModel) {
 
-  let { brand, description, name } = product
+  let { brand, description, name, images } = product
 
   return (
     <Box className='flex flex-col gap-2'>
       <Box className='grid grid-cols-2 bg-white drop-shadow'>
-        <ProductCarousel {...product}/> 
+        <ImageCarousel {...product}/> 
         <Box className='flex flex-col p-5 gap-5'>
           <Details {...product}/> 
           <Actions /> 
@@ -28,8 +36,11 @@ export default function Product( product: ProductModel) {
             <span> {brand} </span>
           </Text>
           <PriceView {...product} />
-          <Variants {...product}/> 
-          <QuantityButton /> 
+          <Variants {...product}/>
+          <Box className='flex flex-row gap-3 items-center'>
+            <Text>Quantity:</Text>
+            <QuantityButton /> 
+          </Box>
           <Box className='flex flex-row gap-2 items-stretch'>
             <BuyNowButton {...product} className='flex-1' />
             <AddToCartButton {...product} className='flex-1' /> 
@@ -37,12 +48,57 @@ export default function Product( product: ProductModel) {
         </Box>
       </Box>
       {/* Company Details */}
-      <Box className='grid grid-rows-4 bg-white drop-shadow'>
-        <Box className='flex flex-col'>
+      <Box 
+        className='grid content-center p-5 gap-3 bg-white drop-shadow' 
+        style={{
+          gridTemplateColumns: ' 1.4fr repeat(3, minmax(0, 1fr))' 
+        }}
+      >
+        <Box className='flex flex-row gap-3 border-r-2'>
           <Box>
-
+            {/* ToDo: This is a placeholder, replace with brand image */}
+            <Image w={'90px'} h={'90px'} className=' rounded-full ' src={images[0]}/>
+          </Box>
+          <Box className='text-sm flex flex-col gap-2 justify-evenly'>
+            <Text className=' font-bold '>{brand}</Text>
+            <Text className=' text-sm ' >Active 44 Minutes Ago</Text>
+            <Box className='flex flex-row gap-2'>
+              <ChatNowButton />
+              <ViewShopButton />
+            </Box>
           </Box>
         </Box>
+        <CompanyDetailTile>
+          <CompanyDetail 
+            property='Ratings'
+            value='627.3k'
+          />
+          <CompanyDetail 
+            property='Products'
+            value='125'
+          />
+        </CompanyDetailTile>
+        <CompanyDetailTile>
+          <CompanyDetail 
+            property='Response Rate'
+            value='86%'
+          />
+          <CompanyDetail 
+            property='Response Time'
+            value='within hours'
+          />
+        </CompanyDetailTile>
+        <CompanyDetailTile>
+          <CompanyDetail 
+            property='Joined'
+            value='69 years ago'
+          />
+          <CompanyDetail 
+            property='Followers'
+            value='125.7k'
+          />
+        </CompanyDetailTile>
+
       </Box> 
       {/* Specifications / Description */}
       <Box className='grid grid-cols-2 bg-white drop-shadow p-5 h-32'>
@@ -77,6 +133,18 @@ export default function Product( product: ProductModel) {
 
         </Box>
       </Box> 
+      {/* From The Same Store */}
+      <HomePageCard title='FROM THE SAME STORE'>
+        <ProductCardList>
+          <ProductCard {...testProd} /> 
+        </ProductCardList>
+      </HomePageCard>
+      {/* You may also like */}
+      <HomePageCard title='YOU MAY ALSO LIKE'>
+        <ProductCardList>
+          <ProductCard {...testProd} /> 
+        </ProductCardList>
+      </HomePageCard>
     </Box>
   )
 }

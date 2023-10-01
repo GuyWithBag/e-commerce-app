@@ -7,9 +7,9 @@ type Props = {}
 export default function QuantityButton({}: Props) {
   return (
     <Box className='flex flex-row'>
-        <IconButton aria-label='Decrement' icon={<AiOutlineMinus />}/>
-        <Input value={1} w={'40px'}/>
-        <IconButton aria-label='Increment' icon={<AiOutlinePlus />}/>
+        <IconButton borderRadius={'0px'} aria-label='Decrement' icon={<AiOutlineMinus />}/>
+        <Input borderRadius={'0px'} value={1} w={'40px'}/>
+        <IconButton borderRadius={'0px'} aria-label='Increment' icon={<AiOutlinePlus />}/>
     </Box>
   )
 }

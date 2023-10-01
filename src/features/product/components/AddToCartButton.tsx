@@ -6,7 +6,7 @@ type Props = ButtonProps & ProductModel
 
 export default function AddToCartButton(props: Props) {
   return (
-    <Button {...props}>
+    <Button {...props} color={'pallete.200'}>
         Add To Cart
     </Button>
   )

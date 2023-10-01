@@ -11,14 +11,14 @@ export default function PriceView({
     let newPrice: number = price - (price * percentOff)
 
     return (
-    <Box>
-        <Text fontSize="xl" className='text-orange-400'>
-            ${newPrice}
-        </Text>
-        <Text fontSize="sm">
-            <span className='line-through'>${price}</span>
-            <span> -{percentOff * 100}%</span>
-        </Text>  
-    </Box>
+        <Box>
+            <Text fontSize="xl" className='text-orange-400 text-left'>
+                ${newPrice}
+            </Text>
+            <Text fontSize="sm" className='text-left'>
+                <span className='line-through'>${price}</span>
+                <span> -{percentOff * 100}%</span>
+            </Text>  
+        </Box>
     )
 }

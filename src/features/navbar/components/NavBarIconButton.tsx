@@ -9,10 +9,11 @@ type Props = {
 
 export default function NavBarIconButton({ariaLabel, icon }: Props) {
   return (
-    <IconButton 
-        variant={'ghost'} 
-        aria-label={ariaLabel} 
-        icon={icon}
+    <IconButton
+      borderRadius={'0px'}  
+      variant={'ghost'} 
+      aria-label={ariaLabel} 
+      icon={icon}
     />
   )
 }

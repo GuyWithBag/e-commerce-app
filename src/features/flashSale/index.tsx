@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react'
-import Card from './components/Card'
+import FlashSaleCard from './components/FlashSaleCard'
 import { ProductModel } from '../../data/productModel'
 import Header from './components/Header'
-import CardList from './components/CardList'
+import FlashSaleCardList from './components/FlashSaleCardList'
 import HomePageCard from '../../components/HomePageCard'
 import { testProd } from '../../placeholder'
 
@@ -14,20 +14,19 @@ export default function FlashSales({}: Props) {
   return (
     <HomePageCard 
       title='Flash Sale'
-      content={    
-        <Box className='flex flex-col gap-2 drop-shadow'>
-          <Header /> 
-          <CardList>
-            <Card {...testProd} />
-            <Card {...testProd} />
-            <Card {...testProd} />
-            <Card {...testProd} />
-            <Card {...testProd} />
-            <Card {...testProd} />
-          </CardList>
-        </Box>
-      }
-    />
+    >
+      <Box className='flex flex-col gap-2 drop-shadow'>
+        <Header /> 
+        <FlashSaleCardList>
+          <FlashSaleCard {...testProd} />
+          <FlashSaleCard {...testProd} />
+          <FlashSaleCard {...testProd} />
+          <FlashSaleCard {...testProd} />
+          <FlashSaleCard {...testProd} />
+          <FlashSaleCard {...testProd} />
+        </FlashSaleCardList>
+      </Box>
+    </HomePageCard>
   )
 }
 

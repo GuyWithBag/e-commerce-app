@@ -3,14 +3,15 @@ import React from 'react'
 
 type Props = {
     title: string, 
-    content: React.ReactElement<any, string | React.JSXElementConstructor<any>> | undefined
-}
+    // content: React.ReactElement<any, string | React.JSXElementConstructor<any>> | undefined
+    children: any
+  }
 
-export default function HomePageCard({title, content}: Props) {
+export default function HomePageCard({ children, title }: Props) {
   return (
     <Box className='flex flex-col gap-1'>
-        <Text>{title}</Text>
-        {content}
+        <Text className='text-lg font-bold'>{title}</Text>
+        {children}
     </Box>
   )
 }

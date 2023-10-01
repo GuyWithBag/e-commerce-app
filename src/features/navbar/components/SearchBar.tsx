@@ -6,9 +6,13 @@ type Props = {}
 
 export default function SearchBar({}: Props) {
   return (
-    <Box className='flex flex-row w-[70%]'>
-        <Input />
-        <IconButton aria-label='Search' icon={<AiOutlineSearch />} />
+    <Box className='flex flex-row w-[60%]'>
+        <Input borderRadius={'0px'} />
+        <IconButton 
+          borderRadius={'0px'}  
+          aria-label='Search' 
+          icon={<AiOutlineSearch />} 
+        />
     </Box>
   )
 }

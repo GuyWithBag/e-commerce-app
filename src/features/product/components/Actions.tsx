@@ -10,8 +10,8 @@ export default function Actions({}: Props) {
   return (
     <Box className='flex flex-row justify-between'>
         <Ratings /> 
-        <Box className='flex flex-row'>
-            <AddToWishlistButton /> 
+        <Box className='flex flex-row items-center'>
+            <AddToWishlistButton toggled={false} />  
             <ShareButton /> 
         </Box>
     </Box>

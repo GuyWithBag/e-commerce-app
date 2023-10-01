@@ -1,8 +1,13 @@
+// import { Category } from "./category"
+
 export type ProductModel = {
-    image: string, 
+    thumbnail: string, 
+    images: string[], 
     name: string, 
     price: number, 
     description: string, 
     percentOff: number, 
-    brand: string
+    brand: string, 
+    brandLink: string, 
+    category: string
 }
