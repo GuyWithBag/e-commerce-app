@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import WishList from '../features/wishList'
+import WishList from '../features/wish List'
 
 type Props = {}
 
