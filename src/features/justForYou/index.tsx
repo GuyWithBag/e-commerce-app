@@ -3,7 +3,7 @@ import React from 'react'
 import HomePageCard from '../../components/HomePageCard'
 import ProductsGridList from '../../components/ProductCardList'
 import ProductCard from '../../components/ProductCard'
-import { testProd } from '../../placeholder'
+import { gamingKeyboardProduct } from '../../placeholder'
 
 type Props = {}
 
@@ -11,16 +11,16 @@ export default function JustForYou({}: Props) {
     return (
         <HomePageCard title='Just For You'>
             <ProductsGridList columns={6}>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
-                <ProductCard {...testProd}/>
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
+                <ProductCard product={gamingKeyboardProduct} />
             </ProductsGridList>
         </HomePageCard>
     )

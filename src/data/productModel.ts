@@ -9,5 +9,8 @@ export type ProductModel = {
     percentOff: number, 
     brand: string, 
     brandLink: string, 
-    category: string
+    category: string, 
+    id: string, 
+    store: string
 }
+

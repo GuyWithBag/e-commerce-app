@@ -2,7 +2,9 @@ import React from 'react'
 import { ProductModel } from '../../../data/productModel'
 import { Button, ButtonProps } from '@chakra-ui/react' 
 
-type Props = ButtonProps & ProductModel
+type Props = {
+    product: ProductModel
+} & ButtonProps
 
 export default function BuyNowButton(props: Props) {
     return (

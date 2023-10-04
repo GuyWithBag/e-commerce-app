@@ -10,7 +10,7 @@ import PriceView from '../../components/PriceView'
 import BuyNowButton from './components/BuyNowButton'
 import StarRatings from '../../components/StarRatings'
 import ProductCard from '../../components/ProductCard'
-import { testProd } from '../../placeholder'
+import { gamingKeyboardProduct, products } from '../../placeholder'
 import HomePageCard from '../../components/HomePageCard'
 import ProductCardList from '../../components/ProductCardList'
 import ChatNowButton from '../../components/ChatNowButton'
@@ -18,11 +18,27 @@ import CompanyDetail from './components/CompanyDetail'
 import CompanyDetailTile from './components/CompanyDetailTile'
 import ViewShopButton from '../../components/ViewShopButton'
 import ImageCarousel from '../../components/imageCarousel'
+import { useParams } from 'react-router-dom'
+import { StringParam, useQueryParams } from 'use-query-params'
 
+type Props = {
 
-export default function Product( product: ProductModel) {
+}
 
-  let { brand, description, name, images } = product
+export default function Product({}: Props) {
+
+  const { productID } = useParams()
+  const product: ProductModel = products.find((product) => product.id === productID)!
+
+  // ToDo: we dont reallyhave anything state management related yet lol, tutorial: https://www.npmjs.com/package/use-query-params
+  // const [ query, setQuery ] = useQueryParams({
+  //   brand: StringParam, 
+  //   description: StringParam, 
+  //   name: StringParam, 
+  //   images: StringParam, 
+  // })
+
+  const { brand, description, name, images } = product
 
   return (
     <Box className='flex flex-col gap-2'>
@@ -30,7 +46,7 @@ export default function Product( product: ProductModel) {
         <ImageCarousel {...product}/> 
         <Box className='flex flex-col p-5 gap-5'>
           <Details {...product}/> 
-          <Actions /> 
+          <Actions product={product} /> 
           <Text className=' text-sm'>
             Brand: 
             <span> {brand} </span>
@@ -42,8 +58,8 @@ export default function Product( product: ProductModel) {
             <QuantityButton /> 
           </Box>
           <Box className='flex flex-row gap-2 items-stretch'>
-            <BuyNowButton {...product} className='flex-1' />
-            <AddToCartButton {...product} className='flex-1' /> 
+            <BuyNowButton product={product} className='flex-1' />
+            <AddToCartButton product={product} quantity={1} className='flex-1' /> 
           </Box>
         </Box>
       </Box>
@@ -136,13 +152,13 @@ export default function Product( product: ProductModel) {
       {/* From The Same Store */}
       <HomePageCard title='FROM THE SAME STORE'>
         <ProductCardList columns={6}>
-          <ProductCard {...testProd} /> 
+          <ProductCard product={gamingKeyboardProduct} /> 
         </ProductCardList>
       </HomePageCard>
       {/* You may also like */}
       <HomePageCard title='YOU MAY ALSO LIKE'>
         <ProductCardList columns={6}>
-          <ProductCard {...testProd} /> 
+          <ProductCard product={gamingKeyboardProduct} /> 
         </ProductCardList>
       </HomePageCard>
     </Box>

@@ -10,6 +10,8 @@ import ProductPage from './pages/ProductPage';
 import Footer from './features/pageFooter';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 import WishListPage from './pages/WishListPage';
+import { QueryParamProvider } from 'use-query-params';
+import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6'; 
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -22,12 +24,16 @@ function App() {
   return (
     <div className='flex flex-col bg-[#e5e5e5] gap-2'>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />}/>
-        <Route path="/Product" element={<ProductPage />}/>
-        <Route path="/ShoppingCart" element={<ShoppingCartPage />}/>
-        <Route path="/Wishlist" element={<WishListPage />}/>
-      </Routes>
+      <QueryParamProvider adapter={ReactRouter6Adapter}>
+        <Routes>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/products" element={<HomePage  />} />
+          <Route path="/products/:productID" element={<ProductPage />} />
+          <Route path="/products:productID" element={<ProductPage />} />
+          <Route path="/shopping-cart" element={<ShoppingCartPage />}/>
+          <Route path="/wish-list" element={<WishListPage />}/>
+        </Routes>
+      </QueryParamProvider>
       <Footer />
     </div>
   );

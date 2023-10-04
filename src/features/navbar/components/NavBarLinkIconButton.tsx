@@ -1,5 +1,5 @@
 import { Link as ReactRouterLink } from 'react-router-dom'
-import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
+import { ButtonProps, Link as ChakraLink, LinkProps } from '@chakra-ui/react'
 import React from 'react'
 import NavBarIconButton from './NavBarIconButton'
 
@@ -7,12 +7,12 @@ type Props = {
     ariaLabel: string, 
     icon: React.ReactElement<any, string | React.JSXElementConstructor<any>> | undefined, 
     to: string
-}
+} & ButtonProps
 
-export default function NavBarLinkButton({ ariaLabel, icon, to }: Props) {
+export default function NavBarLinkButton({ ariaLabel, icon, to, onClick, onMouseOver }: Props) {
   return ( 
     <ChakraLink as={ReactRouterLink} to={to}> 
-        <NavBarIconButton ariaLabel={ariaLabel} icon={icon}/>
+        <NavBarIconButton ariaLabel={ariaLabel} icon={icon} onClick={onClick} onMouseOver={onMouseOver} />
     </ChakraLink>
   )
 }

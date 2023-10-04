@@ -12,7 +12,7 @@ export default function SearchBar({}: Props) {
           borderRadius={'0px'}  
           aria-label='Search' 
           icon={<AiOutlineSearch />} 
-        />
+        /> 
     </Box>
   )
 }

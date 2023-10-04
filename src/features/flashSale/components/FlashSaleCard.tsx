@@ -2,13 +2,14 @@ import { Box, Image, Text, Card, CardBody, Button } from '@chakra-ui/react'
 import { ProductModel } from '../../../data/productModel'
 import React from 'react'
 import PriceView from '../../../components/PriceView'
+import ProductLink from '../../../components/ProductLink'
 
 export default function FlashSaleCard(product: ProductModel) {
 
   let { thumbnail, name, price, percentOff } = product
 
   return (
-    <button>
+    <ProductLink product={product}>
       <Card variant={'unstyled'} w={'productCardW'} className='p-3 bg-white hover:drop-shadow-lg'>
           <CardBody>
             <Image src={thumbnail} /> 
@@ -17,7 +18,7 @@ export default function FlashSaleCard(product: ProductModel) {
             <PriceView {...product} />
           </CardBody>
       </Card>
-    </button>
+    </ProductLink>
   )
 }
 

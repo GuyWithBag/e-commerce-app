@@ -3,7 +3,7 @@ import NavbarButton from './components/NavbarButton'
 import { defaultTheme } from '../../themes/defaultTheme'
 import { AiOutlineHeart, AiOutlinePlus, AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai'
 import {
-  Box, Heading, IconButton,
+  Box, Button, Heading, IconButton, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, useDisclosure,
 } from '@chakra-ui/react'
 import SearchBar from './components/SearchBar'
 import { BsPerson } from 'react-icons/bs'
@@ -15,6 +15,8 @@ import NavBarLinkButton from './components/NavBarLinkButton'
 type Props = {}
 
 export default function NavBar({ }: Props) {
+  
+  const { isOpen, onToggle, onClose } = useDisclosure() 
 
   return (
     <>
@@ -27,17 +29,29 @@ export default function NavBar({ }: Props) {
         <SearchBar />
         <Box className='flex flex-row'>
           <NavBarLinkIconButton 
-            to='/ShoppingCart'
+            to='/shopping-cart'
             ariaLabel='Search'
             icon={<AiOutlineShoppingCart color='white' />}
           />
+          <Popover>
+            <PopoverTrigger>
+              <Button variant={'unstyled'} />
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>Confirmation!</PopoverHeader>
+              <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+            </PopoverContent>
+          </Popover>
           <NavBarLinkIconButton 
             to=''
             ariaLabel='Profile'
             icon={<BsPerson color='white' />}
+            onClick={onToggle}
           />
           <NavBarLinkIconButton 
-           to='WishList'
+            to='/wish-list'
             ariaLabel='Favorites'
             icon={<AiOutlineHeart color='white' />}
           />

@@ -1,19 +1,24 @@
 import { Box, Text, Heading, Button } from '@chakra-ui/react'
 import React from 'react'
 import ProductCardList from '../../components/ProductCardList'
-import { testProd } from '../../placeholder'
+import { gamingKeyboardProduct } from '../../placeholder'
 import ProductCard from '../../components/ProductCard'
+import { useWishListStore } from '../../data/stores/wishListStore'
+import { ProductModel } from '../../data/productModel'
 
 type Props = {}
 
 export default function WishList({}: Props) {
+
+  const wishList: ProductModel[] = useWishListStore((task: any) => task.wishList)
+
   return (
     <Box className='flex flex-row'>
       {/* Personal center??  */}
       <Box>
 
       </Box>
-      <Box className='flex flex-col'>
+      <Box className='flex flex-col gap-3'>
         <Heading>My Wishlist</Heading>
         <Box className='flex flex-row justify-between'>
           <Box className='flex flex-row gap-3'>
@@ -27,12 +32,11 @@ export default function WishList({}: Props) {
           </Box>
         </Box>
         <ProductCardList columns={5}>
-          <ProductCard {...testProd} />
-          <ProductCard {...testProd} />
-          <ProductCard {...testProd} />
-          <ProductCard {...testProd} />
-          <ProductCard {...testProd} />
-          <ProductCard {...testProd} />
+          {
+            wishList.map((product: ProductModel) => (
+              <ProductCard product={product} />
+            ))
+          }
         </ProductCardList>
       </Box>
     </Box>

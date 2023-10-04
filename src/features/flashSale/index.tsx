@@ -5,7 +5,7 @@ import { ProductModel } from '../../data/productModel'
 import Header from './components/Header'
 import FlashSaleCardList from './components/FlashSaleCardList'
 import HomePageCard from '../../components/HomePageCard'
-import { testProd } from '../../placeholder'
+import { gamingKeyboardProduct } from '../../placeholder'
 
 type Props = {}
 
@@ -18,12 +18,12 @@ export default function FlashSales({}: Props) {
       <Box className='flex flex-col gap-2 drop-shadow'>
         <Header /> 
         <FlashSaleCardList>
-          <FlashSaleCard {...testProd} />
-          <FlashSaleCard {...testProd} />
-          <FlashSaleCard {...testProd} />
-          <FlashSaleCard {...testProd} />
-          <FlashSaleCard {...testProd} />
-          <FlashSaleCard {...testProd} />
+          <FlashSaleCard {...gamingKeyboardProduct} />
+          <FlashSaleCard {...gamingKeyboardProduct} />
+          <FlashSaleCard {...gamingKeyboardProduct} />
+          <FlashSaleCard {...gamingKeyboardProduct} />
+          <FlashSaleCard {...gamingKeyboardProduct} />
+          <FlashSaleCard {...gamingKeyboardProduct} />
         </FlashSaleCardList>
       </Box>
     </HomePageCard>
