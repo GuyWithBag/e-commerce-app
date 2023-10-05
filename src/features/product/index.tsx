@@ -1,10 +1,10 @@
 import { Box, Image, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ProductModel } from '../../data/productModel'
 import Details from './components/Details'
 import Variants from './components/Variants'
 import AddToCartButton from './components/AddToCartButton'
-import QuantityButton from './components/QuantityButton'
+import QuantitySpinBox from './components/QuantitySpinBox'
 import Actions from './components/Actions'
 import PriceView from '../../components/PriceView'
 import BuyNowButton from './components/BuyNowButton'
@@ -19,7 +19,8 @@ import CompanyDetailTile from './components/CompanyDetailTile'
 import ViewShopButton from '../../components/ViewShopButton'
 import ImageCarousel from '../../components/imageCarousel'
 import { useParams } from 'react-router-dom'
-import { StringParam, useQueryParams } from 'use-query-params'
+import { NumberParam, StringParam, useQueryParams } from 'use-query-params'
+import { create } from 'zustand'
 
 type Props = {
 
@@ -27,22 +28,44 @@ type Props = {
 
 export default function Product({}: Props) {
 
+  const [ quantity, setQuantity ] = useState(1)
+
+  function incrementQuantity() {
+    const newQuantity: number = quantity + 1
+    setQuantity(newQuantity)
+    setQuery({
+      quantity: newQuantity
+    })
+  }
+
+  function decrementQuantity() {
+    const newQuantity: number = quantity <= 1 ? 0 : quantity - 1
+    setQuantity(newQuantity)
+    setQuery({
+      quantity: newQuantity
+    })
+  }
+
   const { productID } = useParams()
   const product: ProductModel = products.find((product) => product.id === productID)!
 
-  // ToDo: we dont reallyhave anything state management related yet lol, tutorial: https://www.npmjs.com/package/use-query-params
-  // const [ query, setQuery ] = useQueryParams({
-  //   brand: StringParam, 
-  //   description: StringParam, 
-  //   name: StringParam, 
-  //   images: StringParam, 
-  // })
+  // ToDo: we dont really have anything state management related yet lol, tutorial: https://www.npmjs.com/package/use-query-params
+  const [ query, setQuery ] = useQueryParams({
+    quantity: NumberParam 
+  })
 
+  const { quantity: quantityQuery } = query
   const { brand, description, name, images } = product
+
+  useEffect(() => {
+    setQuantity(quantityQuery || 0)
+    // alert('quantity: ' + quantity)
+    // alert('query: ' + quantityQuery)
+  }, [])
 
   return (
     <Box className='flex flex-col gap-2'>
-      <Box className='grid grid-cols-2 bg-white drop-shadow'>
+      <Box className='grid grid-cols-2 bg-white drop-shadow p-5 '>
         <ImageCarousel {...product}/> 
         <Box className='flex flex-col p-5 gap-5'>
           <Details {...product}/> 
@@ -55,7 +78,15 @@ export default function Product({}: Props) {
           <Variants {...product}/>
           <Box className='flex flex-row gap-3 items-center'>
             <Text>Quantity:</Text>
-            <QuantityButton /> 
+            <QuantitySpinBox 
+              onDecrement={() => {
+                decrementQuantity()
+              }} 
+              onIncrement={() => {
+                incrementQuantity()
+              }} 
+              value={quantity}
+            /> 
           </Box>
           <Box className='flex flex-row gap-2 items-stretch'>
             <BuyNowButton product={product} className='flex-1' />
@@ -65,7 +96,7 @@ export default function Product({}: Props) {
       </Box>
       {/* Company Details */}
       <Box 
-        className='grid content-center p-5 gap-3 bg-white drop-shadow' 
+        className='grid content-center gap-3 bg-white drop-shadow' 
         style={{
           gridTemplateColumns: ' 1.4fr repeat(3, minmax(0, 1fr))' 
         }}

@@ -3,7 +3,7 @@ import { ShoppingCartItemModel } from "../shoppingCartItemModel";
 import { v4 } from "uuid";
 import { ProductModel } from "../productModel";
 
-let store = (set: any) => ({
+const store = (set: any) => ({
     cart: <Array<ShoppingCartItemModel>>[], 
     addToCart: (product: ProductModel, quantity: number) => {
         const cartItem: ShoppingCartItemModel = {

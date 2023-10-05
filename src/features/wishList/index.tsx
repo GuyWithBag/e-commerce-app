@@ -5,6 +5,8 @@ import { gamingKeyboardProduct } from '../../placeholder'
 import ProductCard from '../../components/ProductCard'
 import { useWishListStore } from '../../data/stores/wishListStore'
 import { ProductModel } from '../../data/productModel'
+import ProductCardHover from '../../components/ProductCardHover'
+import DeleteFromWishList from './components/DeleteFromWishList'
 
 type Props = {}
 
@@ -13,7 +15,7 @@ export default function WishList({}: Props) {
   const wishList: ProductModel[] = useWishListStore((task: any) => task.wishList)
 
   return (
-    <Box className='flex flex-row'>
+    <Box className='flex flex-row min-h-screen'>
       {/* Personal center??  */}
       <Box>
 
@@ -34,7 +36,9 @@ export default function WishList({}: Props) {
         <ProductCardList columns={5}>
           {
             wishList.map((product: ProductModel) => (
-              <ProductCard product={product} />
+              <ProductCard product={product}>
+                <DeleteFromWishList product={product} /> 
+              </ProductCard>
             ))
           }
         </ProductCardList>

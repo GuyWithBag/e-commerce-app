@@ -8,7 +8,7 @@ type Props = {
 
 export default function BuyNowButton(props: Props) {
     return (
-    <Button {...props} color={'pallete.300'}>
+    <Button {...props} borderRadius={0} color={'pallete.300'}>
         Buy Now
     </Button>
     )

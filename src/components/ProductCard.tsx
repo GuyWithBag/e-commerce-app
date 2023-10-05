@@ -1,5 +1,5 @@
 import { Box, Card, CardBody, Image, Text } from '@chakra-ui/react'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { ProductModel } from '../data/productModel'
 import PriceView from './PriceView'
 import StarRatings from './StarRatings'
@@ -15,31 +15,45 @@ type Props = {
 
 export default function ProductCard({ product, children }: Props) {
   
-  let { thumbnail, name } = product
+  let { thumbnail, name, rating } = product
+  const [ showProductHover, setShowProductHover ] = useState(false)
 
-  function ifHasChildren(): ReactNode {
-    if (children === null) {
-      return <ProductCardHover product={product} />
-    }
-    return children
-  }
+  // function ifHasChildren(): ReactNode {
+  //   if (children === null) {
+  //     return <ProductCardHover product={product} />
+  //   }
+  //   return children
+  // }
 
   return (
-    <ProductLink product={product}>
-      <Card borderRadius={'0px'} h={'productCardH'}  w={'productCardW'} className='bg-white drop-shadow justify-start'>
-          <CardBody p={'0px'} className='flex flex-col items-center justify-start hover:drop-shadow-xl'>
-            {/* hover:visible and invisible doesn't work for some reason */}
-              {/* <Box zIndex={10} className='absolute w-[100%] h-[100%] hover:!visible !invisible '>
-                <ProductCardHover product={product} />
-              </Box> */}
-              <Image src={thumbnail} />
-              <Box className='p-2 flex flex-col items-start justify-start w-[100%] h-[100%]'>
-                <Text className='text-sm'>{name}</Text>
-                <PriceView {...product} />
-                <StarRatings rating={3} />
-              </Box>
-          </CardBody>
+      <Card 
+        borderRadius={'0px'} 
+        h={'productCardH'}  
+        w={'productCardW'} 
+        className='bg-white drop-shadow justify-start'
+        onMouseOver={() => {setShowProductHover(true)}} 
+        onMouseLeave={() => {setShowProductHover(false)}}
+      >
+          <Box 
+            zIndex={10} 
+            className={`absolute flex flex-col justify-start ${showProductHover ? 'visible' : 'invisible'} `}
+            top={'50%'}
+            left={'50%'}
+          >
+            <ProductCardHover product={product}>
+              {children}
+            </ProductCardHover>
+          </Box>
+          <ProductLink product={product}>
+            <CardBody p={'0px'} className='flex flex-col items-center justify-start hover:drop-shadow-xl'>
+                <Image src={thumbnail} />
+                <Box className='p-2 flex flex-col items-start justify-start w-[100%] h-[100%]'>
+                  <Text className='text-sm'>{name}</Text>
+                  <PriceView {...product} />
+                  <StarRatings rating={rating} />
+                </Box>
+            </CardBody>
+          </ProductLink>
       </Card>
-    </ProductLink>
   )
 }

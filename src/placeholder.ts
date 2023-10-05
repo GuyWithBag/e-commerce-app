@@ -18,7 +18,8 @@ export const gamingKeyboardProduct: ProductModel = {
     brandLink: "", 
     category: 'keyboard', 
     id: '1367agSG', 
-    store: 'Comica'
+    shop: 'Comica', 
+    rating: 7
 }
 
 export const gamingMonitorProduct: ProductModel = {
@@ -28,7 +29,7 @@ export const gamingMonitorProduct: ProductModel = {
         Monitor, 
         Monitor
     ], 
-    name : "Gaming Keyboard", 
+    name : "Gaming Monitor", 
     description: "lol", 
     price: 100, 
     percentOff: 0.20, 
@@ -36,7 +37,8 @@ export const gamingMonitorProduct: ProductModel = {
     brandLink: "", 
     category: 'keyboard', 
     id: 'JDIsaisu12', 
-    store: 'Marvel'
+    shop: 'Marvel', 
+    rating: 5
 }
 
 export const products: ProductModel[] = [

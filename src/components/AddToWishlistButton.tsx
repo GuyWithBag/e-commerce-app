@@ -1,4 +1,4 @@
-import { IconButton } from '@chakra-ui/react'
+import { IconButton, useToast } from '@chakra-ui/react'
 import React from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { ProductModel } from '../data/productModel'
@@ -16,11 +16,24 @@ export default function AddToWishListButton({ product }: Props) {
 
   function addWish() {
     addToWishList(product)
+    toast({
+      title: 'Added to Wish list.', 
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
   }
 
   function removeWish() {
     deleteFromWishList(product)
+    toast({
+      title: 'Removed from Wish List.', 
+      status: 'error',
+      duration: 1000,
+      isClosable: true,
+    })
   }
+  const toast = useToast()
 
   if (wishList.includes(product)) {
     return (

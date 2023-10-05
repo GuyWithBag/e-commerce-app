@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { ProductModel } from "../productModel";
 
-let store = (set: any) => ({
+const store = (set: any) => ({
     wishList: <Array<ProductModel>>[], 
     addToWishList: (product: ProductModel) => {
         set((store: any) => (
@@ -13,7 +13,7 @@ let store = (set: any) => ({
     deleteFromWishList: (id: string) => {
         set((store: any) => ({
             wishList: store.wishList.filter(
-                (product: ProductModel) => product.id !== id
+                (product: ProductModel) => product.id === id
             )
         }))
     }, 

@@ -27,7 +27,7 @@ export default function AddToCartButton(props: Props) {
   }
 
   return (
-    <Button {...props} color={'pallete.200'} onClick={onClick}>
+    <Button borderRadius={0} {...props} color={'pallete.200'} onClick={onClick}>
         Add To Cart
     </Button>
   )

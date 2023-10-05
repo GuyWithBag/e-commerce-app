@@ -12,7 +12,7 @@ type Props = {
 export default function Actions({ product }: Props) {
   return (
     <Box className='flex flex-row justify-between'>
-        <Ratings /> 
+        <Ratings product={product} /> 
         <Box className='flex flex-row items-center'>
             <AddToWishlistButton product={product} />  
             <ShareButton /> 

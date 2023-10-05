@@ -11,6 +11,7 @@ export type ProductModel = {
     brandLink: string, 
     category: string, 
     id: string, 
-    store: string
+    shop: string, 
+    rating: number
 }
 
