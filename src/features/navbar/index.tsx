@@ -15,7 +15,6 @@ import NavBarLinkButton from './components/NavBarLinkButton'
 type Props = {}
 
 export default function NavBar({ }: Props) {
-  
   const { isOpen, onToggle, onClose } = useDisclosure() 
 
   return (

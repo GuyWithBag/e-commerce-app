@@ -8,7 +8,11 @@ type Props = {
 
 export default function ProductCardList({ children, columns }: Props) {
   return (
-    <Box className={`grid grid-cols-${columns} gap-2`}>
+    <Box className={`grid grid-cols-${columns} gap-2`}
+      style={{
+        gridTemplateColumns: ''
+      }}
+    >
         {children}
     </Box>
   )
