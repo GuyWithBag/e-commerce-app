@@ -1,21 +1,16 @@
 import { Box, Button, IconButton, Image } from '@chakra-ui/react'
-import Keyboard from '../../assets/images/placeholder/keyboard-product.png'
 import React, { useState } from 'react'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 import DotsCarouselItem from './components/DotsCarouselItem'
 import Dots from './components/Dots'
 
-type Props = {}
+type Props = {
+  items: string[]
+}
 
-export default function DotsCarousel({}: Props) {
+export default function DotsCarousel({ items }: Props) {
 
   let [ activeIndex, setActiveIndex ] = useState(0) 
-
-  let items: string[] = [
-    Keyboard, 
-    Keyboard, 
-    Keyboard
-  ]
 
   function updateIndex(index: number): void {
     let newIndex: number = index
@@ -36,9 +31,9 @@ export default function DotsCarousel({}: Props) {
             transform: `translate(-${activeIndex * 100}%)`
           }}
         >
-          <DotsCarouselItem src={Keyboard}/> 
-          <DotsCarouselItem src={Keyboard}/> 
-          <DotsCarouselItem src={Keyboard}/> 
+          {items.map((item) => (
+            <DotsCarouselItem src={item}/> 
+          ))}
         </Box>
       </Box>
       <IconButton 
@@ -68,7 +63,7 @@ export default function DotsCarousel({}: Props) {
         bottom={'0%'} 
         right={'35%'} 
         position={'absolute'}
-        className='grid grid-cols-3 gap-2 justify-center items-center place-content-end ' 
+        className='grid grid-rows-1 grid-flow-col gap-2 justify-center items-center place-content-end ' 
         zIndex={'10'}
       >
         {items.map((item, index) => (

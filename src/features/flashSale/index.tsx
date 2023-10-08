@@ -7,9 +7,11 @@ import FlashSaleCardList from './components/FlashSaleCardList'
 import HomePageCard from '../../components/HomePageCard'
 import { gamingKeyboardProduct } from '../../placeholder'
 
-type Props = {}
+type Props = {
+  products: ProductModel[]
+}
 
-export default function FlashSales({}: Props) {
+export default function FlashSales({ products }: Props) {
   // const [ toDosList, setToDosList ] = useSt
   return (
     <HomePageCard 
@@ -18,12 +20,11 @@ export default function FlashSales({}: Props) {
       <Box className='flex flex-col gap-2 drop-shadow'>
         <Header /> 
         <FlashSaleCardList>
-          <FlashSaleCard {...gamingKeyboardProduct} />
-          <FlashSaleCard {...gamingKeyboardProduct} />
-          <FlashSaleCard {...gamingKeyboardProduct} />
-          <FlashSaleCard {...gamingKeyboardProduct} />
-          <FlashSaleCard {...gamingKeyboardProduct} />
-          <FlashSaleCard {...gamingKeyboardProduct} />
+          {
+            products.map((item) => (
+              <FlashSaleCard product={item} />
+            ))
+          }
         </FlashSaleCardList>
       </Box>
     </HomePageCard>

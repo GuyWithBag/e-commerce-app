@@ -2,9 +2,13 @@ import { Box, Image, Text, Card, CardBody, Button } from '@chakra-ui/react'
 import { ProductModel } from '../../../data/productModel'
 import React from 'react'
 import PriceView from '../../../components/PriceView'
-import ProductLink from '../../../components/ProductLink'
+import ProductLink from '../../../components/ProductLink' 
 
-export default function FlashSaleCard(product: ProductModel) {
+type Props = {
+  product: ProductModel
+}
+
+export default function FlashSaleCard({ product }: Props) {
 
   let { thumbnail, name, price, percentOff } = product
 

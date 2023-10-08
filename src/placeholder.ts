@@ -1,7 +1,10 @@
 import Keyboard from './assets/images/placeholder/keyboard-product.png' 
 import Monitor from './assets/images/placeholder/monitor-product.jpg'
+import { ProductCategoryModel } from './data/productCategoryModel';
 
 import { ProductModel } from "./data/productModel"; 
+import { ProductSubCategoryModel } from './data/productSubCategoryModel';
+import { ProductTypeModel } from './data/productTypeModel';
 
 export const gamingKeyboardProduct: ProductModel = {
     thumbnail: Keyboard, 
@@ -16,7 +19,15 @@ export const gamingKeyboardProduct: ProductModel = {
     percentOff: 0.20, 
     brand: "Shein", 
     brandLink: "", 
-    category: 'keyboard', 
+    productType: {
+        name: "Electronic Devices", 
+        category: {
+            name: "Computer", 
+            subCategory: {
+                name: "Keyboard" 
+            } as ProductSubCategoryModel
+        } as ProductCategoryModel
+    } as ProductTypeModel, 
     id: '1367agSG', 
     shop: 'Comica', 
     rating: 7
@@ -35,7 +46,15 @@ export const gamingMonitorProduct: ProductModel = {
     percentOff: 0.20, 
     brand: "Shein", 
     brandLink: "", 
-    category: 'keyboard', 
+    productType: {
+        name: "Electronic Devices", 
+        category: {
+            name: "Computer", 
+            subCategory: {
+                name: "Monitor" 
+            } as ProductSubCategoryModel
+        } as ProductCategoryModel
+    } as ProductTypeModel, 
     id: 'JDIsaisu12', 
     shop: 'Marvel', 
     rating: 5
@@ -43,6 +62,12 @@ export const gamingMonitorProduct: ProductModel = {
 
 export const products: ProductModel[] = [
     gamingKeyboardProduct, 
-    gamingMonitorProduct
+    gamingMonitorProduct, 
+    gamingKeyboardProduct, 
+    gamingMonitorProduct, 
+    gamingKeyboardProduct, 
+    gamingMonitorProduct, 
+    gamingKeyboardProduct, 
+    gamingMonitorProduct, 
 ]
 

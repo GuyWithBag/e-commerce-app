@@ -6,6 +6,7 @@ import HomePageCard from '../components/HomePageCard'
 import Footer from '../features/pageFooter'
 import CategoriesGrid from '../features/categoriesGrid'
 import JustForYou from '../features/justForYou'
+import { products } from '../placeholder'
 
 type Props = {}
 
@@ -15,9 +16,9 @@ export default function HomePage({}: Props) {
       <Box pt="pagePaddingTop" px="navbarPaddingX" className='flex flex-col gap-2'>
         <Header />
         <Box className='flex flex-col gap-4'>
-          <FlashSales />
+          <FlashSales products={products} />
           <CategoriesGrid /> 
-          <JustForYou /> 
+          <JustForYou products={products} /> 
         </Box>
       </Box>
     </Box>
