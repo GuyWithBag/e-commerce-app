@@ -13,8 +13,9 @@ export default function ProductLink({ product, children }: Props) {
     let { id } = product
 
   return (
-    <ChakraLink as={ReactRouterLink} to={`/products/${id}`}>
+    <ChakraLink as={ReactRouterLink} to={`/products/${id}`} onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}>
         {children}
     </ChakraLink>
   )
 }
+

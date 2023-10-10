@@ -9,10 +9,10 @@ type Props = {
     to: string
 } & ButtonProps
 
-export default function NavBarLinkButton({ ariaLabel, icon, to, onClick, onMouseOver }: Props) {
+export default function NavBarLinkButton({ ariaLabel, icon, to, onClick, onMouseOver, onMouseLeave }: Props) {
   return ( 
     <ChakraLink as={ReactRouterLink} to={to}> 
-        <NavBarIconButton ariaLabel={ariaLabel} icon={icon} onClick={onClick} onMouseOver={onMouseOver} />
+        <NavBarIconButton ariaLabel={ariaLabel} icon={icon} onClick={onClick} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} />
     </ChakraLink>
   )
 }

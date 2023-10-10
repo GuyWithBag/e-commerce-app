@@ -26,7 +26,7 @@ export const defaultTheme: Record<string, any> = extendTheme({
     }, 
     sizes: {
       productCardH: '290px', 
-      productCardW: '180px', 
+      productCardW: '175px', 
       categoryCardSize: '135px', 
     },
     colors: {

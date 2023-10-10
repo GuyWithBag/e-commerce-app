@@ -11,11 +11,11 @@ import { MdOutlineLanguage } from 'react-icons/md'
 import { RiCustomerServiceLine } from 'react-icons/ri'
 import NavBarLinkIconButton from './components/NavBarLinkIconButton'
 import NavBarLinkButton from './components/NavBarLinkButton'
+import ProfileButton from './components/ProfileButton'
 
 type Props = {}
 
 export default function NavBar({ }: Props) {
-  const { isOpen, onToggle, onClose } = useDisclosure() 
 
   return (
     <>
@@ -35,23 +35,7 @@ export default function NavBar({ }: Props) {
             ariaLabel='Search'
             icon={<AiOutlineShoppingCart color='white' />}
           />
-          <Popover>
-            <PopoverTrigger>
-              <Button variant={'unstyled'} />
-            </PopoverTrigger>
-            <PopoverContent>
-              <PopoverArrow />
-              <PopoverCloseButton />
-              <PopoverHeader>Confirmation!</PopoverHeader>
-              <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
-            </PopoverContent>
-          </Popover>
-          <NavBarLinkIconButton 
-            to=''
-            ariaLabel='Profile'
-            icon={<BsPerson color='white' />}
-            onClick={onToggle}
-          />
+          <ProfileButton />
           <NavBarLinkIconButton 
             to='/wish-list'
             ariaLabel='Favorites'

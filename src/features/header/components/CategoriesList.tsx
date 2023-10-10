@@ -7,7 +7,7 @@ type Props = {
 
 export default function CategoriesList({ children }: Props) {
   return (
-    <List className='w-[20%] bg-white p-2'>
+    <List className='bg-white p-2 w-[100%]'>
       {children}
     </List>
   )
