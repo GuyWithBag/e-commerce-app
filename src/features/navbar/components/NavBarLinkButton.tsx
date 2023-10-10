@@ -8,10 +8,10 @@ type Props = {
     to: string, 
 } & ButtonProps 
 
-export default function NavBarLinkButton({ children, to, variant }: Props) {
+export default function NavBarLinkButton({ children, to, variant, className }: Props) {
   return (
     <ChakraLink as={ReactRouterLink} to={to} >
-        <Button variant={variant}> 
+        <Button variant={variant} className={className}> 
             {children}
         </Button>
     </ChakraLink>

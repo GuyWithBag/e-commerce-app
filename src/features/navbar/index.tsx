@@ -20,11 +20,14 @@ export default function NavBar({ }: Props) {
   return (
     <>
       <Box px="navbarPaddingX" bgColor={'pallete.200'} className='text-white gap-5 h-16 flex justify-between items-center fixed w-[100%] shadow-md z-10'>
-        <NavBarLinkButton to='/' variant={'unstyled'}>
-          <Heading fontFamily={`'Arial', sans-serif`} fontWeight={'bold'} fontSize={'30px'} className="text-2xl font-bold font-white ">
-            ShopIt
-          </Heading>
-        </NavBarLinkButton>
+        <Box className='flex flex-row justify-center items-center gap-2'>
+          <AiOutlineShoppingCart size={'30px'} />
+          <NavBarLinkButton to='/' variant={'unstyled'}>
+            <Heading fontFamily={`'Arial', sans-serif`} fontWeight={'bold'} fontSize={'30px'} className="text-2xl font-bold font-white ">
+              ShopIt
+            </Heading>
+          </NavBarLinkButton>
+        </Box>
         <SearchBar />
         <Box className='flex flex-row'>
           <NavBarLinkIconButton 
