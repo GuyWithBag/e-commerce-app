@@ -1,6 +1,8 @@
 
 import { create } from 'zustand'
 import { ProductTypeModel } from '../productTypeModel' 
+import { ProductCategoryModel } from '../productCategoryModel'
+import { ProductSubCategoryModel } from '../productSubCategoryModel'
 
 // 'Electronic Devices',
 // 'Electronic Accessories', 
@@ -19,58 +21,82 @@ const store = (set: any) => ({
     productTypes: <Array<ProductTypeModel>>[
         {
             name: 'Electronic Devices', 
-            category: {
-                name: 'Lorem Ipsum', 
-                subCategory: {
-                    name: 'Lorem Ipsum'
-                }
-            }
-        }, 
+            categories: [
+                    {
+                    name: 'Lorem Ipsum', 
+                    subCategories: [
+                        {
+                            name: 'Lorem Ipsum'
+                        } as ProductSubCategoryModel
+                    ]
+                } as ProductCategoryModel
+            ]
+        } as ProductTypeModel, 
         {
             name: 'Electronic Accessories', 
-            category: {
-                name: 'Lorem Ipsum', 
-                subCategory: {
-                    name: 'Lorem Ipsum'
-                }
-            }
-        }, 
+            categories: [
+                {
+                    name: 'Lorem Ipsum', 
+                    subCategories: [
+                        {
+                            name: 'Lorem Ipsum'
+                        } as ProductSubCategoryModel
+                    ]
+                } as ProductCategoryModel
+            ]
+        } as ProductTypeModel, 
         {
             name: 'TV & Home Appliances', 
-            category: {
-                name: 'Lorem Ipsum', 
-                subCategory: {
-                    name: 'Lorem Ipsum'
-                }
-            }
-        }, 
+            categories: [
+                {
+                    name: 'Lorem Ipsum', 
+                    subCategories: [
+                        {
+                            name: 'Lorem Ipsum'
+                        } as ProductSubCategoryModel
+                    ]
+                } as ProductCategoryModel
+            ]
+        } as ProductTypeModel, 
         {
             name: 'Health & Beauty', 
-            category: {
-                name: 'Lorem Ipsum', 
-                subCategory: {
-                    name: 'Lorem Ipsum'
-                }
-            }
-        }, 
+            categories: [
+                    {
+                    name: 'Lorem Ipsum', 
+                    subCategories: [
+                        {
+                            name: 'Lorem Ipsum'
+                        } as ProductSubCategoryModel
+                    ]
+                } as ProductCategoryModel
+            ]
+        } as ProductTypeModel, 
         {
             name: 'Babies & Toys', 
-            category: {
-                name: 'Lorem Ipsum', 
-                subCategory: {
-                    name: 'Lorem Ipsum'
-                }
-            }
-        }, 
+            categories: [
+                    {
+                    name: 'Lorem Ipsum', 
+                    subCategories: [
+                        {
+                            name: 'Lorem Ipsum'
+                        } as ProductSubCategoryModel
+                    ]
+                } as ProductCategoryModel
+            ]
+        } as ProductTypeModel, 
         {
             name: 'Groceries & Pets', 
-            category: {
-                name: 'Lorem Ipsum', 
-                subCategory: {
-                    name: 'Lorem Ipsum'
-                }
-            }
-        }, 
+            categories: [
+                    {
+                    name: 'Lorem Ipsum', 
+                    subCategories: [
+                        {
+                            name: 'Lorem Ipsum'
+                        } as ProductSubCategoryModel
+                    ]
+                } as ProductCategoryModel
+            ]
+        } as ProductTypeModel, 
     ]
 }) 
 

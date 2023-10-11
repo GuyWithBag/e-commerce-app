@@ -45,7 +45,7 @@ export default function Header({}: Props) {
         >
           <CategoriesList>
             {
-              productType.category.map((item: ProductCategoryModel) => (
+              productType.categories.map((item: ProductCategoryModel) => (
                 <CategoryListItem title={item.name}/>
               ))
             }

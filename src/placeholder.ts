@@ -21,12 +21,16 @@ export const gamingKeyboardProduct: ProductModel = {
     brandLink: "", 
     productType: {
         name: "Electronic Devices", 
-        category: {
-            name: "Computer", 
-            subCategory: {
-                name: "Keyboard" 
-            } as ProductSubCategoryModel
-        } as ProductCategoryModel
+        categories: <Array<ProductCategoryModel>>[
+            {
+                name: "Computer", 
+                subCategories: <Array<ProductSubCategoryModel>>[
+                    {
+                        name: "Keyboard" 
+                    } as ProductSubCategoryModel
+                ] 
+            } as ProductCategoryModel
+        ] 
     } as ProductTypeModel, 
     id: '1367agSG', 
     shop: 'Comica', 
@@ -48,12 +52,16 @@ export const gamingMonitorProduct: ProductModel = {
     brandLink: "", 
     productType: {
         name: "Electronic Devices", 
-        category: {
-            name: "Computer", 
-            subCategory: {
-                name: "Monitor" 
-            } as ProductSubCategoryModel
-        } as ProductCategoryModel
+        categories: <Array<ProductCategoryModel>>[
+            {
+                name: "Computer", 
+                subCategories: <Array<ProductSubCategoryModel>>[
+                    {
+                        name: "Monitor" 
+                    } as ProductSubCategoryModel
+                ] 
+            } as ProductCategoryModel
+        ] 
     } as ProductTypeModel, 
     id: 'JDIsaisu12', 
     shop: 'Marvel', 
