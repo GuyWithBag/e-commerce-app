@@ -64,7 +64,7 @@ export default function SearchBar({}: Props) {
   }, [window.location.pathname]) 
 
   return (
-    <Box className='flex flex-row w-[60%]'>
+    <Box className='flex flex-row w-[60%] max-sm:w-[40%]'>
       <InputGroup>
         <Input 
           borderRadius={'0px'} 

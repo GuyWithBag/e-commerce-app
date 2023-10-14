@@ -10,7 +10,13 @@ export default function CategoryCard({image, name}: Props) {
   return (
     <button>
       <Card
-         borderRadius={'0px'} h={'categoryCardSize'} w={'categoryCardSize'} className='flex flex-col h-auto w-auto justify-center items-center p-2 bg-white drop-shadow hover:drop-shadow-xl'
+         borderRadius={'0px'} 
+         className={`
+          flex flex-col justify-center items-center
+          p-2 bg-white drop-shadow hover:drop-shadow-xl 
+          w-categoryCard 
+          max-sm:w-categoryCardsm max-sm:h-categoryCardsm
+         `}
       >
           <CardBody>
             <Image

@@ -7,21 +7,20 @@ import Footer from '../features/pageFooter'
 import CategoriesGrid from '../features/categoriesGrid'
 import JustForYou from '../features/justForYou'
 import { products } from '../placeholder'
+import PageComponent from '../components/PageComponent'
 
 type Props = {}
 
 export default function HomePage({}: Props) {
   return (
-    <Box className='flex flex-col'>
-      <Box pt="pagePaddingTop" px="navbarPaddingX" className='flex flex-col gap-2'>
-        <Header />
-        <Box className='flex flex-col gap-4'>
-          <FlashSales products={products} />
-          <CategoriesGrid /> 
-          <JustForYou products={products} /> 
-        </Box>
+    <PageComponent>
+      <Header />
+      <Box className='flex flex-col gap-4'>
+        <FlashSales products={products} />
+        <CategoriesGrid /> 
+        <JustForYou products={products} /> 
       </Box>
-    </Box>
+    </PageComponent>
   )
 }
 

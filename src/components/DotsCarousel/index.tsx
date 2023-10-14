@@ -21,10 +21,10 @@ export default function DotsCarousel({ items }: Props) {
     }
     setActiveIndex(newIndex)
   }
-
+  // h-[320px]
   return (
     <Box>
-      <Box className='flex bg-red-400 h-[320px] w-[100%] overflow-x-hidden overflow-y-hidden justify-center'>
+      <Box className='flex bg-red-400  w-[100%] overflow-x-hidden overflow-y-hidden justify-center'>
         <Box 
           className='whitespace-nowrap transition-transform' 
           style={{
@@ -61,7 +61,7 @@ export default function DotsCarousel({ items }: Props) {
       />
       <Box 
         bottom={'0%'} 
-        right={'35%'} 
+        right={'28%'} 
         position={'absolute'}
         className='grid grid-rows-1 grid-flow-col gap-2 justify-center items-center place-content-end ' 
         zIndex={'10'}

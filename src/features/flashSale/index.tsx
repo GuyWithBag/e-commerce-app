@@ -17,7 +17,7 @@ export default function FlashSales({ products }: Props) {
     <HomePageCard 
       title='Flash Sale'
     >
-      <Box className='flex flex-col gap-2 drop-shadow'>
+      <Box className='flex flex-col gap-2 drop-shadow justify-center max-sm:gap-6'>
         <Header /> 
         <FlashSaleCardList>
           {

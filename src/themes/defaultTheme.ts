@@ -25,9 +25,8 @@ export const defaultTheme: Record<string, any> = extendTheme({
       body: `'default', sans-serif`
     }, 
     sizes: {
-      productCardH: '290px', 
-      productCardW: '175px', 
       categoryCardSize: '135px', 
+      pageMaxWidth: '1090px', 
     },
     colors: {
       pallete: {
@@ -39,8 +38,9 @@ export const defaultTheme: Record<string, any> = extendTheme({
     },
     space: {
       navbarPaddingX: "14%", 
+      pagePaddingX: '6%', 
       navbarPaddingSmallX: "12%", 
-      pagePaddingTop: "5rem", 
+      pagePaddingTop: "1rem", 
     }, 
     baseStyle: {
       borderRadius: '0px', 

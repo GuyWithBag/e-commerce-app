@@ -26,7 +26,7 @@ const store = (set: any) => ({
                     name: 'Lorem Ipsum', 
                     subCategories: [
                         {
-                            name: 'Lorem Ipsum'
+                            name: 'uwu'
                         } as ProductSubCategoryModel
                     ]
                 } as ProductCategoryModel

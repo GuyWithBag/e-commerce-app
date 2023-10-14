@@ -16,3 +16,4 @@ export default function NavBarLinkButton({ ariaLabel, icon, to, onClick, onMouse
     </ChakraLink>
   )
 }
+

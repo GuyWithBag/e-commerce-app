@@ -9,7 +9,7 @@ type Props = {}
 export default function CategoriesGrid({}: Props) {
   return (
     <HomePageCategoryCard title='Categories'>
-      <Box className='grid grid-cols-8 grid-rows-2 h-92 w-[100%] gap-1'>
+      <Box className='grid grid-cols-8 grid-rows-2 h-92 w-[100%] gap-1 max-sm:grid-cols-4 max-sm:grid-rows-3'>
         <CategoryCard image={Clothing} name='ASS' /> 
         <CategoryCard image={Clothing} name='ASS' /> 
         <CategoryCard image={Clothing} name='ASS' /> 

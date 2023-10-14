@@ -9,7 +9,7 @@ type Props = {
 
 export default function HomePageCard({ children, title }: Props) {
   return (
-    <Box className='flex flex-col gap-1'>
+    <Box className='flex flex-col gap-1 max-sm:gap-6'>
         <Text className='text-lg font-bold'>{title}</Text>
         {children}
     </Box>

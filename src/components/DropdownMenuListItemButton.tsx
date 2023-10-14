@@ -1,6 +1,6 @@
 import React from 'react'
 import DropdownMenuListItem from './DropdownMenuListItem'
-import { Button } from '@chakra-ui/react'
+import { Button, Text } from '@chakra-ui/react'
 
 type Props = {
     children: any
@@ -9,8 +9,10 @@ type Props = {
 export default function DropdownMenuListItemButton({ children }: Props) {
     return (
         <DropdownMenuListItem>
-            <Button variant={'unstyled'}>
-                {children}
+            <Button variant={'ghost'}>
+                <Text className='text-xs font-normal'>
+                    {children}
+                </Text>
             </Button>
         </DropdownMenuListItem>
     )

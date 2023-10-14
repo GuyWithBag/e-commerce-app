@@ -29,9 +29,11 @@ export default function ProductCard({ product, children }: Props) {
   return (
       <Card 
         borderRadius={'0px'} 
-        h={'productCardH'}  
-        w={'productCardW'} 
-        className={`bg-white drop-shadow justify-start transition-transform ${isMouseHover ? 'scale-105' : ''}`}
+        className={`
+          bg-white drop-shadow justify-start transition-transform ${isMouseHover ? 'scale-105' : ''} 
+          w-productCard h-productCard 
+          max-sm:w-productCardsm max-sm:h-productCardsm
+        `}
         onMouseOver={onMouseOver} 
         onMouseLeave={onMouseLeave} 
       >

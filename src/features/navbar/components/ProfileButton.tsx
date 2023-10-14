@@ -32,29 +32,29 @@ export default function ProfileButton({}: Props) {
             <Box onMouseLeave={onMouseLeave}>
                 <DropdownMenuList visible={isMouseHover} className='bg-white p-5'>
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>My Profile</Text>
+                        My Profile
                     </DropdownMenuListItemButton>
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>My Orders</Text>
+                        My Orders
                     </DropdownMenuListItemButton>
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>My Message</Text>
+                        My Message
                     </DropdownMenuListItemButton>
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>My Coupons</Text>
+                        My Coupons
                     </DropdownMenuListItemButton>
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>My Points</Text>
+                        My Points
                     </DropdownMenuListItemButton>
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>Recently Viewed</Text>
+                        Recently Viewed
                     </DropdownMenuListItemButton>
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>More Services</Text>
+                        More Services
                     </DropdownMenuListItemButton>
                     <hr />
                     <DropdownMenuListItemButton>
-                        <Text className='text-xs'>Sign Out</Text>
+                        Sign Out
                     </DropdownMenuListItemButton>
                 </DropdownMenuList>
             </Box>

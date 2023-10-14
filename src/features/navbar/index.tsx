@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavbarButton from './components/NavbarButton'
 import { defaultTheme } from '../../themes/defaultTheme'
-import { AiOutlineHeart, AiOutlinePlus, AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlineHeart, AiOutlineMenu, AiOutlinePlus, AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai'
 import {
   Box, Button, Heading, IconButton, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, useDisclosure,
 } from '@chakra-ui/react'
@@ -12,15 +12,92 @@ import { RiCustomerServiceLine } from 'react-icons/ri'
 import NavBarLinkIconButton from './components/NavBarLinkIconButton'
 import NavBarLinkButton from './components/NavBarLinkButton'
 import ProfileButton from './components/ProfileButton'
+import NavbarMenu from './components/NavbarMenu'
 
 type Props = {}
 
+export type NavbarItem = {
+  title: string, 
+  to: string, 
+  icon: any, 
+  options?: NavbarItemOption[]
+}
+
+export type NavbarItemOption = {
+  title: string, 
+  to: string
+}
+
 export default function NavBar({ }: Props) {
+
+  const [ isMenuOpen, setIsMenuOpen ] = useState(false)
+
+  const items: NavbarItem[] = [
+    {
+      title: 'Profile', 
+      to: '', 
+      icon: <BsPerson color='white' />,  
+      options: [
+        {
+          title: 'My Profile', 
+          to: ''
+        }, 
+        {
+          title: 'My Orders', 
+          to: ''
+        }, 
+        {
+          title: 'My Message', 
+          to: ''
+        }, 
+        {
+          title: 'My Coupons', 
+          to: ''
+        }, 
+        {
+          title: 'Recently Viewed', 
+          to: ''
+        }, 
+        {
+          title: 'Customer Services', 
+          to: ''
+        }, 
+        {
+          title: 'Sign Out', 
+          to: ''
+        }, 
+      ]
+    }, 
+    {
+      title: 'Shopping Cart', 
+      to: '/shopping-cart', 
+      icon: <AiOutlineShoppingCart color='white' />, 
+    }, 
+    {
+      title: 'Wish list', 
+      to: '/wish-list', 
+      icon: <AiOutlineHeart color='white' />
+    }, 
+    {
+      title: 'Customer Support', 
+      to: '', 
+      icon: <RiCustomerServiceLine color='white' />
+    }, 
+    {
+      title: 'Languages', 
+      to: '', 
+      icon: <MdOutlineLanguage color='white' />
+    }, 
+  ]
+
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   return (
     <>
-      <Box px="navbarPaddingX" bgColor={'pallete.200'} className='text-white gap-5 h-16 flex justify-between items-center fixed w-[100%] shadow-md z-10'>
-        <Box className='flex flex-row justify-center items-center gap-2'>
+      <Box px={'pagePaddingX'} bgColor={'pallete.200'} className='text-white h-16 flex justify-between items-center sticky w-[100%] shadow-md z-10 top-0'>
+        <Box maxW={'pageMaxWidth'} className='flex flex-row justify-center items-center gap-2'>
           <AiOutlineShoppingCart size={'30px'} />
           <NavBarLinkButton to='/' variant={'unstyled'}>
             <Heading fontFamily={`'Arial', sans-serif`} fontWeight={'bold'} fontSize={'30px'} className="text-2xl font-bold font-white ">
@@ -29,29 +106,26 @@ export default function NavBar({ }: Props) {
           </NavBarLinkButton>
         </Box>
         <SearchBar />
-        <Box className='flex flex-row'>
-          <NavBarLinkIconButton 
-            to='/shopping-cart'
-            ariaLabel='Search'
-            icon={<AiOutlineShoppingCart color='white' />}
-          />
-          <ProfileButton />
-          <NavBarLinkIconButton 
-            to='/wish-list'
-            ariaLabel='Favorites'
-            icon={<AiOutlineHeart color='white' />}
-          />
-          <NavBarLinkIconButton 
-            to=''
-            ariaLabel='Customer Support'
-            icon={<RiCustomerServiceLine color='white' />}
-          />
-          <NavBarLinkIconButton 
-            to=''
-            ariaLabel='Languages'
-            icon={<MdOutlineLanguage color='white' />}
-          />
+        <Box className=' hidden max-sm:block'>
+          <IconButton aria-label='Sidebar button' icon={<AiOutlineMenu />} onClick={toggleMenu}/>
         </Box>
+        <Box className='max-sm:hidden'>
+          <Box className='flex flex-row'>
+            {items.map(({to, title, icon}) => (
+              <NavBarLinkIconButton 
+                to={to}
+                ariaLabel={title}
+                icon={icon}
+              />
+            ))}
+          </Box>
+        </Box>
+      </Box>
+      <Box className={`${isMenuOpen ? 'fixed' : 'hidden'} z-20`}>
+        <NavbarMenu 
+          items={items} 
+          onCloseClick={toggleMenu}
+        />
       </Box>
     </>
   )
