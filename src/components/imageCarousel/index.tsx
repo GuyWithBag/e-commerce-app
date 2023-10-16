@@ -30,7 +30,7 @@ export default function ImageCarousel({ images }: Props) {
 
   return (
     <Box className='flex flex-col gap-2 justify-center items-center'>
-      <Box className='flex bg-red-400 h-[420px] w-[420px] overflow-x-hidden overflow-y-hidden justify-center'>
+      <Box className='flex bg-red-400 overflow-x-hidden overflow-y-hidden justify-center aspect-square max-h-96'>
         <Box 
           className='whitespace-nowrap transition-transform' 
           style={{

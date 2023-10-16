@@ -18,9 +18,7 @@ export default function ShoppingCart({}: Props) {
 
     return (
         <Box className='flex flex-col gap-16'> 
-            <Box className='grid gap-1' style={{
-                gridTemplateColumns: '1.6fr 1fr'
-            }}> 
+            <Box className='grid gap-1 grid-cols-[1.6fr,1fr]' > 
                 <Box className='flex flex-col gap-2'>
                     <Box className='bg-white p-4'>
                         <Box className='flex flex-row justify-between'>

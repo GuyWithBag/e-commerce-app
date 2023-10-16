@@ -61,13 +61,13 @@ export default function Product({}: Props) {
     setQuantity(quantityQuery || 0)
     // alert('quantity: ' + quantity)
     // alert('query: ' + quantityQuery)
-  }, [])
+  }, []) 
 
   return (
     <Box className='flex flex-col gap-2'>
-      <Box className='grid grid-cols-2 bg-white drop-shadow p-5 '>
+      <Box className='grid lg:grid-cols-2 max-sm:grid-rows-2 bg-white drop-shadow p-5 max-sm:p-3'>
         <ImageCarousel {...product}/> 
-        <Box className='flex flex-col p-5 gap-5'>
+        <Box className='flex flex-col p-5 max-sm:py-0 max-sm:px-0 max-sm:pb-6 gap-5'>
           <Details {...product}/> 
           <Actions product={product} /> 
           <Text className=' text-sm'>
@@ -96,15 +96,12 @@ export default function Product({}: Props) {
       </Box>
       {/* Company Details */}
       <Box 
-        className='grid content-center gap-3 bg-white drop-shadow' 
-        style={{
-          gridTemplateColumns: ' 1.4fr repeat(3, minmax(0, 1fr))' 
-        }}
+        className='grid content-center gap-3 max-sm:gap-5 max-sm:p-3 bg-white drop-shadow md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] max-sm:flex max-sm:flex-col' 
       >
-        <Box className='flex flex-row gap-3 border-r-2'>
+        <Box className='flex flex-row gap-3 items-center lg:border-r-2'>
           <Box>
             {/* ToDo: This is a placeholder, replace with brand image */}
-            <Image w={'90px'} h={'90px'} className=' rounded-full ' src={images[0]}/>
+            <Image className=' rounded-full aspect-square' src={images[0]}/>
           </Box>
           <Box className='text-sm flex flex-col gap-2 justify-evenly'>
             <Text className=' font-bold '>{brand}</Text>
@@ -148,10 +145,12 @@ export default function Product({}: Props) {
 
       </Box> 
       {/* Specifications / Description */}
-      <Box className='grid grid-cols-2 bg-white drop-shadow p-5 h-32'>
-        <Text className=' text-lg '>Product details of {name}</Text>
-        <br />
-        <Text className=' text-md'>{description}</Text>
+      <Box className='flex flex-col bg-white drop-shadow p-5 py-9 min-h-32'>
+        <Box className='w-[100%]'>
+          <Text className='text-lg font-bold '>Product details of {name}</Text>
+          <br />
+          <Text className=' text-md'>{description}</Text>
+        </Box>
       </Box> 
       {/* Review And Comments */}
       <Box className='flex flex-col gap-4 p-5 bg-white drop-shadow'>

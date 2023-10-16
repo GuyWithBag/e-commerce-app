@@ -11,7 +11,7 @@ export default function ImageCarouselItem({ src }: Props) {
       zIndex={'0'}
       className=' inline-flex items-center justify-center w-[100%]'
     >
-        <Image className='' src={src}/>
+        <Image className='object-cover' src={src}/>
     </Box>
   )
 }

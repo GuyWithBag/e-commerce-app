@@ -77,5 +77,11 @@ export const products: ProductModel[] = [
     gamingMonitorProduct, 
     gamingKeyboardProduct, 
     gamingMonitorProduct, 
+    gamingKeyboardProduct, 
+    gamingMonitorProduct, 
+    gamingKeyboardProduct, 
+    gamingMonitorProduct, 
+    gamingKeyboardProduct, 
+    gamingMonitorProduct, 
 ]
 

@@ -7,7 +7,7 @@ type Props = {
 
 export default function CompanyDetailTile({ children }: Props) {
   return (
-    <Box className='flex flex-col gap-4 justify-center'>
+    <Box className='flex flex-col gap-4 max-sm:gap-2 justify-center'>
         {children} 
     </Box>
   )
