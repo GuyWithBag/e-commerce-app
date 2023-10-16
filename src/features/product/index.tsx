@@ -98,7 +98,7 @@ export default function Product({}: Props) {
       <Box 
         className='grid content-center gap-3 max-sm:gap-5 max-sm:p-3 bg-white drop-shadow md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] max-sm:flex max-sm:flex-col' 
       >
-        <Box className='flex flex-row gap-3 items-center lg:border-r-2'>
+        <Box className='flex flex-row gap-3 items-center lg:border-r-2 lg:p-3'>
           <Box>
             {/* ToDo: This is a placeholder, replace with brand image */}
             <Image className=' rounded-full aspect-square' src={images[0]}/>
