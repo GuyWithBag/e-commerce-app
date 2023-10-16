@@ -7,7 +7,7 @@ type Props = {}
 
 export default function Banner({}: Props) {
   return (
-    <Box className='w-[80%] bg-blue-100'>
+    <Box className='bg-blue-100'>
       <DotsCarousel items={[
         BannerImage, 
         BannerImage, 

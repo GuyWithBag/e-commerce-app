@@ -69,8 +69,8 @@ export default function Header({}: Props) {
   }
 
   return (
-    <Box className='drop-shadow flex flex-row bg-green-400 aspect-[20/6] max-lg:hidden'>
-      <Box className='flex flex-row w-[20%]'>
+    <Box className='drop-shadow flex flex-row bg-green-400 aspect-[20/6]'>
+      <Box className='flex flex-row w-[20%] max-lg:hidden'>
         <CategoriesList>
           {
             productTypes.map((item: ProductTypeModel) => (
@@ -97,7 +97,9 @@ export default function Header({}: Props) {
           </PopoverMenu>
         </PopoverMenu>
       </Box>
-      <Banner /> 
+      <Box className='w-[80%] max-sm:w-[100%]'>
+       <Banner /> 
+      </Box>
     </Box>
   )
 }
