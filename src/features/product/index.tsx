@@ -66,7 +66,7 @@ export default function Product({}: Props) {
   return (
     <Box className='flex flex-col gap-2'>
       <Box className='grid lg:grid-cols-2 max-sm:grid-rows-2 bg-white drop-shadow p-5 max-sm:p-3'>
-        <ImageCarousel {...product}/> 
+        <ImageCarousel items={product.images}/> 
         <Box className='flex flex-col p-5 max-sm:py-0 max-sm:px-0 max-sm:pb-6 gap-5'>
           <Details {...product}/> 
           <Actions product={product} /> 

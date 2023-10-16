@@ -8,16 +8,20 @@ import { useCartStore } from '../../../data/stores/cartStore'
 import DeleteFromCartButton from './DeleteFromCartButton'
 import AddToWishListButton from '../../../components/AddToWishListButton'
 import { ShoppingCartItemModel } from '../../../data/shoppingCartItemModel'
+import { gamingKeyboardProduct } from '../../../placeholder'
 
 type Props = {
-    cartItem: ShoppingCartItemModel
+    cartItem: ShoppingCartItemModel | undefined
 }
 
 export default function ShoppingCartItem({ cartItem }: Props) {
 
     const deleteFromCart = useCartStore((task: any) => task.deleteFromCart)
 
-    const { product } = cartItem
+    let product: ProductModel = gamingKeyboardProduct
+    if (cartItem != undefined) {
+        product = cartItem.product
+    }
     const { name, thumbnail } = product
 
     return (
@@ -44,7 +48,7 @@ export default function ShoppingCartItem({ cartItem }: Props) {
                                 variant={'ghost'}
                             />
                             <AddToWishListButton product={product} />
-                            <DeleteFromCartButton cartItem={cartItem} />
+                            <DeleteFromCartButton cartItem={cartItem || {product: gamingKeyboardProduct, quantity: 0, id: ''}} />
                         </Box>
                     </Box>
                 </Box>

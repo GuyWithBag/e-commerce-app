@@ -48,7 +48,7 @@ export const gamingMonitorProduct: ProductModel = {
     description: "lol", 
     price: 100, 
     percentOff: 0.20, 
-    brand: "Shein", 
+    brand: "McDonalds", 
     brandLink: "", 
     productType: {
         name: "Electronic Devices", 

@@ -5,18 +5,12 @@ import ImageCarouselItem from './components/ImageCarouselItem'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
 type Props = {
-  images: string[]
+  items: string[]
 }
 
-export default function ImageCarousel({ images }: Props) {
+export default function ImageCarousel({ items }: Props) {
   
   let [ activeIndex, setActiveIndex ] = useState(0) 
-
-  let items: string[] = [
-    Keyboard, 
-    Keyboard, 
-    Keyboard
-  ]
 
   function updateIndex(index: number): void {
     let newIndex: number = index

@@ -9,56 +9,29 @@ import { gamingKeyboardProduct } from '../../placeholder'
 import { useCartStore } from '../../data/stores/cartStore'
 import { ProductModel } from '../../data/productModel'
 import { ShoppingCartItemModel } from '../../data/shoppingCartItemModel'
+import AllItems from './components/AllIShoppingCarttems'
+import OrderSummary from './components/OrderSummary'
 
 type Props = {}
 
 export default function ShoppingCart({}: Props) {
 
     const cart = useCartStore((store: any) => store.cart)
+    let itemsByShops: Map<string, ShoppingCartItemModel> = new Map<string, ShoppingCartItemModel>()
 
+    function organizeItemsByShop(): Map<string, ShoppingCartItemModel> {
+        for (let i = 0; i < cart.length; i++) {
+            const shop = cart[i].shop
+            itemsByShops.set(shop, cart[i])
+        }
+        return itemsByShops
+    }
+    // ToDo: You have to sort them by their shops
     return (
         <Box className='flex flex-col gap-16'> 
-            <Box className='grid gap-1 grid-cols-[1.6fr,1fr]' > 
-                <Box className='flex flex-col gap-2'>
-                    <Box className='bg-white p-4'>
-                        <Box className='flex flex-row justify-between'>
-                            <span  className='flex flex-row gap-2' >
-                                <Radio />
-                                <Text>All items (2)</Text> 
-            
-                            </span>
-                        </Box>
-                    </Box>
-                    <Box className='flex flex-col gap-1'>
-                        {/* Shopping cart items here */}
-                        <ShoppingCartItemGroup group={'Shein'}>
-                            {
-                                cart.map((cartItem: ShoppingCartItemModel, index: number) => (
-                                        <ShoppingCartItem cartItem={cartItem} />
-                                ))
-                            }
-                        </ShoppingCartItemGroup>
-                    </Box>
-                </Box>
-                <Box className='flex flex-col gap-3'>
-                    <Box className='flex flex-col bg-white drop-shadow p-4'>
-                        <Box>
-                            <Text>Order Summary</Text>
-                        </Box>
-                        <Box className='flex flex-col gap-2'>
-                            <Text>$100</Text>
-                            <Text>Already Saved</Text>
-                            <Text>Reward 12 ShopIt points</Text>
-                            <Button>Checkout Now (2)</Button>
-                        </Box>
-                    </Box>
-                    <Box className='flex flex-col bg-white drop-shadow p-4'>
-                        <Box>We Accept</Box>
-                        <Box className='grid grid-cols-6'>
-                            {/* Credit cards here */}
-                        </Box>
-                    </Box>
-                </Box>
+            <Box className='grid gap-1 grid-cols-[1.6fr,1fr] max-sm:flex max-sm:flex-col' > 
+                <AllItems itemsByShops={() => organizeItemsByShop()} />
+                <OrderSummary /> 
             </Box>
             <Box className='flex flex-col gap-8'>
                 <HomePageCard title='From Your Wishlist (5)'>
