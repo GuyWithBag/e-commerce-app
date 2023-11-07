@@ -13,8 +13,8 @@ export default function CategoryCard({image, name}: Props) {
          borderRadius={'0px'} 
          className={`
           flex flex-col justify-center items-center
-          p-2 bg-white drop-shadow hover:drop-shadow-xl 
-          w-categoryCard 
+          p-2 body-secondary drop-shadow hover:drop-shadow-xl 
+          w-categoryCard transition-transform hover:scale-105
           max-sm:w-categoryCardsm max-sm:h-categoryCardsm
          `}
       >

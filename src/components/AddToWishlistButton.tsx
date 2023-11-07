@@ -41,7 +41,7 @@ export default function AddToWishListButton({ product }: Props) {
         aria-label='Add to Wishlist' 
         variant={'ghost'} 
         icon={
-          <AiFillHeart color='red' />
+          <AiFillHeart color='red' className='color-darkmode'/>
         } 
         onClick={removeWish}
       />
@@ -51,7 +51,7 @@ export default function AddToWishListButton({ product }: Props) {
     <IconButton 
       aria-label='Add to Wishlist' 
       variant={'ghost'} 
-      icon={<AiOutlineHeart />}
+      icon={<AiOutlineHeart className='color-darkmode'/>}
       onClick={addWish}
     />
   )

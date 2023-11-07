@@ -9,7 +9,7 @@ type Props = {
 
 export default function ShoppingCartItemGroup({ group, children }: Props) {
   return (
-    <Box className='flex flex-col p-4 bg-white gap-4'>
+    <Box className='flex flex-col p-4 body-secondary gap-4'>
         <Box className='flex flex-row gap-4 items-center'>
             <Radio />
             <AiOutlineShop />

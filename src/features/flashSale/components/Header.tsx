@@ -6,7 +6,7 @@ type Props = {}
 
 export default function Header({}: Props) {
   return (
-    <Box className='drop-shadow flex flex-row gap-7 max-sm:gap-2 px-10 py-3 max-sm:px-3 bg-white max-sm:justify-center items-center'>
+    <Box className='drop-shadow flex flex-row gap-7 max-sm:gap-2 px-10 py-3 max-sm:px-3 body-secondary max-sm:justify-center items-center'>
         <Text className='max-sm:text-sm'>On Sale Now</Text>
         <Box className='flex flex-row gap-2 justify-center items-center'>
           <Text className='max-sm:text-sm'>Ending in</Text> 

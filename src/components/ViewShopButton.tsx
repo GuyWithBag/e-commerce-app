@@ -8,8 +8,8 @@ type Props = {}
 export default function ViewShopButton({}: Props) {
   return (
     <Button variant={'outline'} p={'5px'} className='flex flex-row gap-1'>
-        <AiOutlineShop />
-        <Text className='text-sm font-normal'>View Shop</Text>
+        <AiOutlineShop className='color-darkmode' />
+        <Text className='text-sm font-normal color-darkmode'>View Shop</Text>
     </Button>
   )
 }

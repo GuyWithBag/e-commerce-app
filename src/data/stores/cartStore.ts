@@ -15,10 +15,17 @@ const store = (set: any) => ({
             cart: [...store.cart, cartItem]
         }))
     }, 
-    deleteFromCart: (id: string) => {
+    deleteFromCart: (value: ShoppingCartItemModel) => {
         set((store: any) => ({
             cart: store.cart.filter(
-                (cartItem: ShoppingCartItemModel) => cartItem.id === id
+                (cartItem: ShoppingCartItemModel) => {
+                    // if (cartItem.id !== id) {
+                        // alert(cartItem.product.name)
+                        // alert(cartItem.id)
+                        // alert(value.id)
+                    // }
+                    return cartItem.id !== value.id
+                }
             )
         }))
     }, 

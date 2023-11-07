@@ -9,7 +9,7 @@ type Props = {}
 
 export default function Footer({}: Props) {
   return (
-    <Box px={'navbarPaddingX'} className='bg-white drop-shadow py-20 '>
+    <Box px={'navbarPaddingX'} className='body-secondary drop-shadow py-20 '>
       <footer className='flex flex-col items-center justify-center'>
         <Box className='grid grid-cols-5 max-sm:grid-cols-3'>
           {/* Customer Service */}

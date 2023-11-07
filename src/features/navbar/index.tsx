@@ -13,6 +13,7 @@ import NavBarLinkIconButton from './components/NavBarLinkIconButton'
 import NavBarLinkButton from './components/NavBarLinkButton'
 import ProfileButton from './components/ProfileButton'
 import NavbarMenu from './components/NavbarMenu'
+import DarkModeToggle from '../../components/DarkModeToggle'
 
 type Props = {}
 
@@ -96,36 +97,44 @@ export default function NavBar({ }: Props) {
 
   return (
     <>
-      <Box px={'pagePaddingX'} bgColor={'pallete.200'} className='text-white h-16 flex justify-between items-center sticky w-[100%] shadow-md z-10 top-0'>
-        <Box maxW={'pageMaxWidth'} className='flex flex-row justify-center items-center gap-2'>
-          <AiOutlineShoppingCart size={'30px'} />
-          <NavBarLinkButton to='/' variant={'unstyled'}>
-            <Heading fontFamily={`'Arial', sans-serif`} fontWeight={'bold'} fontSize={'30px'} className="text-2xl font-bold font-white ">
-              ShopIt
-            </Heading>
-          </NavBarLinkButton>
-        </Box>
-        <SearchBar />
-        <Box className=' hidden max-sm:block'>
-          <IconButton aria-label='Sidebar button' icon={<AiOutlineMenu />} onClick={toggleMenu}/>
-        </Box>
-        <Box className='max-sm:hidden'>
-          <Box className='flex flex-row'>
-            {items.map(({to, title, icon}) => (
-              <NavBarLinkIconButton 
-                to={to}
-                ariaLabel={title}
-                icon={icon}
-              />
-            ))}
+      <Box px={'pagePaddingX'} bgColor={'pallete.200'} className='text-white h-16 flex justify-center items-center sticky w-[100%] shadow-md z-10 top-0'>
+        <Box maxW={'pageMaxWidth'} className='w-[100%] flex flex-row gap-2 justify-between'>
+
+          <Box className='flex flex-row justify-center items-center gap-2'>
+            <AiOutlineShoppingCart size={'30px'} />
+            <NavBarLinkButton to='/' variant={'unstyled'}>
+              <Heading fontFamily={`'Arial', sans-serif`} fontWeight={'bold'} fontSize={'30px'} className="text-2xl font-bold font-white ">
+                ShopIt
+              </Heading>
+            </NavBarLinkButton>
+          </Box>
+
+          <SearchBar />
+          <Box className=' hidden max-sm:block'>
+            <IconButton aria-label='Sidebar button' icon={<AiOutlineMenu />} onClick={toggleMenu}/>
+          </Box>
+
+          <Box className='max-sm:hidden'>
+            <Box className='flex flex-row'>
+              <DarkModeToggle />
+              {items.map(({to, title, icon}) => (
+                <NavBarLinkIconButton 
+                  to={to}
+                  ariaLabel={title}
+                  icon={icon}
+                />
+              ))}
+            </Box>
           </Box>
         </Box>
-      </Box>
-      <Box className={`${isMenuOpen ? 'fixed' : 'hidden'} z-20`}>
-        <NavbarMenu 
-          items={items} 
-          onCloseClick={toggleMenu}
-        />
+
+        {/* Navbar menu when it is in mobile mode */}
+        <Box className={`${isMenuOpen ? 'fixed' : 'hidden'} z-20`}>
+          <NavbarMenu 
+            items={items} 
+            onCloseClick={toggleMenu}
+          />
+        </Box>
       </Box>
     </>
   )

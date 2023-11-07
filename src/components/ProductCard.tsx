@@ -16,30 +16,19 @@ type Props = {
 export default function ProductCard({ product, children }: Props) {
   
   let { thumbnail, name, rating } = product
-  const [ isMouseHover, setIsMouseHover ] = useState(false)
-
-  function onMouseOver() {
-    setIsMouseHover(true)
-  }
-
-  function onMouseLeave() {
-    setIsMouseHover(false)
-  }
 
   return (
       <Card 
         borderRadius={'0px'} 
         className={`
-          bg-white drop-shadow justify-start transition-transform ${isMouseHover ? 'scale-105' : ''} 
+          body-secondary drop-shadow justify-start transition-transform hover:scale-105
           w-productCard h-productCard 
           max-sm:w-productCardsm max-sm:h-productCardsm
         `}
-        onMouseOver={onMouseOver} 
-        onMouseLeave={onMouseLeave} 
       >
           <Box 
             zIndex={10} 
-            className={`absolute flex flex-col justify-start ${isMouseHover ? 'visible' : 'invisible'} `}
+            className={`absolute flex flex-col justify-start hover:visible invisible  `}
             top={'50%'}
             left={'50%'}
           >

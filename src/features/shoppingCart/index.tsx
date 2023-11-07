@@ -9,39 +9,52 @@ import { gamingKeyboardProduct } from '../../placeholder'
 import { useCartStore } from '../../data/stores/cartStore'
 import { ProductModel } from '../../data/productModel'
 import { ShoppingCartItemModel } from '../../data/shoppingCartItemModel'
-import AllItems from './components/AllIShoppingCarttems'
+import AllShoppingCartItems from './components/AllIShoppingCarttems'
 import OrderSummary from './components/OrderSummary'
+import { useWishListStore } from '../../data/stores/wishListStore'
 
 type Props = {}
 
 export default function ShoppingCart({}: Props) {
 
     const cart = useCartStore((store: any) => store.cart)
-    let itemsByShops: Map<string, ShoppingCartItemModel> = new Map<string, ShoppingCartItemModel>()
+    const wishList = useWishListStore((store: any) => store.wishList)
 
-    function organizeItemsByShop(): Map<string, ShoppingCartItemModel> {
-        for (let i = 0; i < cart.length; i++) {
-            const shop = cart[i].shop
-            itemsByShops.set(shop, cart[i])
+    function  ifEmpty() {
+        if (cart.length === 0) {
+            return (
+                <Box className='body-secondary flex justify-center items-center w-[100%] h-96 drop-shadow'>
+                    <Text>Your shopping cart is empty.</Text>
+                </Box>
+            )
         }
-        return itemsByShops
+        return (
+            <Box className='grid gap-1 grid-cols-[1.6fr,1fr] max-sm:flex max-sm:flex-col' > 
+                <AllShoppingCartItems cart={cart} />
+                <OrderSummary cart={cart}/> 
+            </Box>
+        )
     }
+
     // ToDo: You have to sort them by their shops
     return (
-        <Box className='flex flex-col gap-16'> 
-            <Box className='grid gap-1 grid-cols-[1.6fr,1fr] max-sm:flex max-sm:flex-col' > 
-                <AllItems itemsByShops={() => organizeItemsByShop()} />
-                <OrderSummary /> 
-            </Box>
+        <Box className='flex flex-col gap-16'>
+            {
+                ifEmpty()
+            }
             <Box className='flex flex-col gap-8'>
-                <HomePageCard title='From Your Wishlist (5)'>
-                    <ProductCardList columns={6}>
-                        <ProductCard product={gamingKeyboardProduct} />
-                        <ProductCard product={gamingKeyboardProduct} />
-                        <ProductCard product={gamingKeyboardProduct} />
-                        <ProductCard product={gamingKeyboardProduct} />
-                        <ProductCard product={gamingKeyboardProduct} />
-                        <ProductCard product={gamingKeyboardProduct} />
+                <HomePageCard title={`From Your Wishlist (${wishList.length})`}>
+                    <ProductCardList columns={6} ifEmpty={
+                            <Box className='body-secondary flex justify-center items-center w-[100%] h-32 drop-shadow'>
+                                <Text>Your wish list is empty.</Text>
+                            </Box>
+                        }
+                    >
+                        {
+                            wishList.map((product: ProductModel) => (
+                                <ProductCard product={product}/>
+                            ))
+                        }
                     </ProductCardList>
                 </HomePageCard>
                 <HomePageCard title='You May Also Like'>

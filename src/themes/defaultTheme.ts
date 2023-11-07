@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react"
+import { extendTheme, type ThemeConfig  } from "@chakra-ui/react"
 
 import { checkboxAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
@@ -19,30 +19,36 @@ const baseStyle = definePartsStyle({
 
 let checkboxTheme = defineMultiStyleConfig({ baseStyle })
 
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+}
+
 export const defaultTheme: Record<string, any> = extendTheme({
-    fonts: {
-      heading: `'default', sans-serif`,
-      body: `'default', sans-serif`
-    }, 
-    sizes: {
-      categoryCardSize: '135px', 
-      pageMaxWidth: '1090px', 
-    },
-    colors: {
-      pallete: {
-        100: "#071952", 
-        200: "#088395", 
-        300: "#35A29F", 
-        400: "#F2F7A1"
-      } 
-    },
-    space: {
-      navbarPaddingX: "14%", 
-      pagePaddingX: '6%', 
-      navbarPaddingSmallX: "12%", 
-      pagePaddingTop: "1rem", 
-    }, 
-    baseStyle: {
-      borderRadius: '0px', 
-    }
-  })
+  config, 
+  fonts: {
+    heading: `'default', sans-serif`,
+    body: `'default', sans-serif`
+  }, 
+  sizes: {
+    categoryCardSize: '135px', 
+    pageMaxWidth: '1090px', 
+  },
+  colors: {
+    pallete: {
+      100: "#071952", 
+      200: "#088395", 
+      300: "#35A29F", 
+      400: "#F2F7A1"
+    } 
+  },
+  space: {
+    navbarPaddingX: "14%", 
+    pagePaddingX: '6%', 
+    navbarPaddingSmallX: "12%", 
+    pagePaddingTop: "1rem", 
+  }, 
+  baseStyle: {
+    borderRadius: '0px', 
+  }
+})

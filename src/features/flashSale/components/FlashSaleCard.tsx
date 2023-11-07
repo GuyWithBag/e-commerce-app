@@ -13,16 +13,6 @@ export default function FlashSaleCard({ product }: Props) {
 
   let { thumbnail, name, price, percentOff } = product
 
-  const [ isMouseHover, setIsMouseHover ] = useState(false)
-
-  function onMouseOver() {
-    setIsMouseHover(true)
-  }
-
-  function onMouseLeave() {
-    setIsMouseHover(false)
-  }
-
   return (
     <ProductLink product={product}>
       {/* <ProductCard 
@@ -31,14 +21,12 @@ export default function FlashSaleCard({ product }: Props) {
       <Card 
         variant={'unstyled'} 
         className={
-          `bg-white hover:drop-shadow-lg 
-          transition-transform ${isMouseHover ? 'scale-105' : ''} 
+          `body-secondary hover:drop-shadow-lg 
+          transition-transform hover:scale-105
           p-3 max-sm:p-1
           w-flashSaleProductCard h-flashSaleProductCard
           max-sm:w-flashSaleProductCardsm max-sm:h-flashSaleProductCardsm
         `}
-        onMouseOver={onMouseOver}
-        onMouseLeave={onMouseLeave} 
       >
           <CardBody>
             <Image src={thumbnail} /> 

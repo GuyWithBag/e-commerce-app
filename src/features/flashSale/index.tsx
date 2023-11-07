@@ -21,7 +21,7 @@ export default function FlashSales({ products }: Props) {
         <Header /> 
         <FlashSaleCardList>
           {
-            products.map((item) => (
+            products.slice(0, 12).map((item) => (
               <FlashSaleCard product={item} />
             ))
           }

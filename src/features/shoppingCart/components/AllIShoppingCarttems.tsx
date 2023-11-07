@@ -5,30 +5,43 @@ import ShoppingCartItem from './ShoppingCartItem'
 import { ShoppingCartItemModel } from '../../../data/shoppingCartItemModel'
 
 type Props = {
-    itemsByShops: Map<string, ShoppingCartItemModel>
+    cart: ShoppingCartItemModel[]
 }
 
-export default function AllShoppingCartItems({ itemsByShops }: Props) {
+export default function AllShoppingCartItems({ cart }: Props) {
+
+    let itemsByShops: Map<string, ShoppingCartItemModel> = new Map<string, ShoppingCartItemModel>()
+
+    function organizeItemsByShop(): Map<string, ShoppingCartItemModel> {
+        for (let i = 0; i < cart.length; i++) {
+            const shop = cart[i].product.shop
+            itemsByShops.set(shop, cart[i])
+        }
+        return itemsByShops
+    }
+
+    organizeItemsByShop()
+
     return (
         <Box className='flex flex-col gap-2'>
-            <Box className='bg-white p-4'>
+            <Box className='body-secondary p-4'>
                 <Box className='flex flex-row justify-between'>
                     <span  className='flex flex-row gap-2' >
                         <Radio />
-                        <Text>All items (2)</Text> 
+                        <Text>All items ({cart.length})</Text> 
 
                     </span>
                 </Box>
             </Box>
             <Box className='flex flex-col gap-1'>
                 {/* Shopping cart items here */}
-                <ShoppingCartItemGroup group={'Shein'}>
-                    {
-                        Array.from(itemsByShops.keys()).map((key: string, index: number) => (
-                                <ShoppingCartItem cartItem={itemsByShops.get(key)} />
-                        ))
-                    }
-                </ShoppingCartItemGroup>
+                {
+                    Array.from(itemsByShops.keys()).map((key: string, index: number) => (
+                        <ShoppingCartItemGroup group={key}>
+                            <ShoppingCartItem cartItem={itemsByShops.get(key)} />
+                        </ShoppingCartItemGroup>
+                    ))
+                }
             </Box>
         </Box>
     )

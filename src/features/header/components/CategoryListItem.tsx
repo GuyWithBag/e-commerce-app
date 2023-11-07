@@ -9,7 +9,7 @@ export default function CategoryListItem({ title, onMouseOver, onClick }: Props)
   return (
     <ListItem className='h-[3vw]'> 
       <Button variant={'ghost'} onMouseOver={onMouseOver} onClick={onClick}>
-        <Text className='text-sm font-normal'>{title}</Text>
+        <Text className='text-sm font-normal color-darkmode'>{title}</Text>
       </Button>
     </ListItem>
   )

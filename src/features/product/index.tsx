@@ -20,7 +20,6 @@ import ViewShopButton from '../../components/ViewShopButton'
 import ImageCarousel from '../../components/imageCarousel'
 import { useParams } from 'react-router-dom'
 import { NumberParam, StringParam, useQueryParams } from 'use-query-params'
-import { create } from 'zustand'
 
 type Props = {
 
@@ -58,14 +57,14 @@ export default function Product({}: Props) {
   const { brand, description, name, images } = product
 
   useEffect(() => {
-    setQuantity(quantityQuery || 0)
+    setQuantity(quantityQuery || 1)
     // alert('quantity: ' + quantity)
     // alert('query: ' + quantityQuery)
   }, []) 
 
   return (
     <Box className='flex flex-col gap-2'>
-      <Box className='grid lg:grid-cols-2 max-sm:grid-rows-2 bg-white drop-shadow p-5 max-sm:p-3'>
+      <Box className='grid lg:grid-cols-2 max-sm:grid-rows-2 body-secondary drop-shadow p-5 max-sm:p-3'>
         <ImageCarousel items={product.images}/> 
         <Box className='flex flex-col p-5 max-sm:py-0 max-sm:px-0 max-sm:pb-6 gap-5'>
           <Details {...product}/> 
@@ -79,6 +78,7 @@ export default function Product({}: Props) {
           <Box className='flex flex-row gap-3 items-center'>
             <Text>Quantity:</Text>
             <QuantitySpinBox 
+              variant=''
               onDecrement={() => {
                 decrementQuantity()
               }} 
@@ -90,13 +90,13 @@ export default function Product({}: Props) {
           </Box>
           <Box className='flex flex-row gap-2 items-stretch'>
             <BuyNowButton product={product} className='flex-1' />
-            <AddToCartButton product={product} quantity={1} className='flex-1' /> 
+            <AddToCartButton product={product} quantity={quantity} className='flex-1' /> 
           </Box>
         </Box>
       </Box>
       {/* Company Details */}
       <Box 
-        className='grid content-center gap-3 max-sm:gap-5 max-sm:p-3 bg-white drop-shadow md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] max-sm:flex max-sm:flex-col' 
+        className='grid content-center gap-3 max-sm:gap-5 max-sm:p-3 body-secondary drop-shadow md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] max-sm:flex max-sm:flex-col' 
       >
         <Box className='flex flex-row gap-3 items-center lg:border-r-2 lg:p-3'>
           <Box>
@@ -145,7 +145,7 @@ export default function Product({}: Props) {
 
       </Box> 
       {/* Specifications / Description */}
-      <Box className='flex flex-col bg-white drop-shadow p-5 py-9 min-h-32'>
+      <Box className='flex flex-col body-secondary drop-shadow p-5 py-9 min-h-32'>
         <Box className='w-[100%]'>
           <Text className='text-lg font-bold '>Product details of {name}</Text>
           <br />
@@ -153,7 +153,7 @@ export default function Product({}: Props) {
         </Box>
       </Box> 
       {/* Review And Comments */}
-      <Box className='flex flex-col gap-4 p-5 bg-white drop-shadow'>
+      <Box className='flex flex-col gap-4 p-5 body-secondary drop-shadow'>
         <text>Ratings & Reviews of {name}</text>
         <Box className='flex flex-row gap-1'>
           <Box className='flex flex-col gap-1'>

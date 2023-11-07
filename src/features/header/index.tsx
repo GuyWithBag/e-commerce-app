@@ -81,13 +81,13 @@ export default function Header({}: Props) {
         <PopoverMenu
           visible={productType !== null}
           onMouseLeave={onMouseLeave}
-          className='bg-white h-[100%] w-52 left-[20%]'
+          className='body-secondary h-[100%] w-52 left-[20%]'
         >
           <CategoriesList>
             {categoriesListView()}
           </CategoriesList>
           <PopoverMenu 
-            className='bg-white h-[100%] w-52 left-52 bottom-0' 
+            className='body-secondary h-[100%] w-52 left-52 bottom-0' 
             visible={category !== null}
             onMouseLeave={() => setCategory(null)}
           >
