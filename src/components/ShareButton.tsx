@@ -21,7 +21,7 @@ export default function ShareButton({}: Props) {
     <IconButton 
         aria-label='Share Button'
         variant={'ghost'}
-        icon={<AiOutlineShareAlt />}
+        icon={<AiOutlineShareAlt className='color-darkmode'/>}
         onClick={onClick}
     />
   )

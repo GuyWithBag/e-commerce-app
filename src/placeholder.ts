@@ -15,7 +15,7 @@ export const gamingKeyboardProduct: ProductModel = {
     ], 
     name : "Gaming Keyboard", 
     description: "lol", 
-    price: 100, 
+    price: 85, 
     percentOff: 0.20, 
     brand: "Shein", 
     brandLink: "", 
@@ -47,7 +47,7 @@ export const gamingMonitorProduct: ProductModel = {
     name : "Gaming Monitor", 
     description: "lol", 
     price: 100, 
-    percentOff: 0.20, 
+    percentOff: 0.30, 
     brand: "McDonalds", 
     brandLink: "", 
     productType: {

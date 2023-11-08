@@ -42,6 +42,7 @@ export default function ImageCarousel({ items }: Props) {
           variant={'ghost'} 
           icon={<AiOutlineLeft 
             size={'70%'}
+            className='color-darkmode'
           />}
           onClick={() => updateIndex(activeIndex - 1)}
         />
@@ -59,6 +60,7 @@ export default function ImageCarousel({ items }: Props) {
           variant={'ghost'} 
           icon={<AiOutlineRight 
             size={'70%'}
+            className='color-darkmode'
           />}
           onClick={() => updateIndex(activeIndex + 1)}
         />
