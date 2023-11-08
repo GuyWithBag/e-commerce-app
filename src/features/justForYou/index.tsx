@@ -16,7 +16,7 @@ export default function JustForYou({ products }: Props) {
             <ProductsGridList columns={6}>
             {
                 products.map((item) => (
-                <ProductCard product={item} />
+                    <ProductCard product={item} />
                 ))
             }
             </ProductsGridList>

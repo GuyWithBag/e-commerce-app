@@ -1,29 +1,32 @@
 import { Box, Button, Card, CardBody, Image, Text } from '@chakra-ui/react'
 import React from 'react'
+import { ProductTypeModel } from '../../../data/productTypeModel'
 
 type Props = {
-    image: string, 
-    name: string
+    productType: ProductTypeModel
 }
 
-export default function CategoryCard({image, name}: Props) {
+export default function CategoryCard({productType}: Props) {
+
+  const { name, image } = productType
+
   return (
     <button>
       <Card
          borderRadius={'0px'} 
          className={`
-          flex flex-col justify-center items-center
-          p-2 body-secondary drop-shadow hover:drop-shadow-xl 
-          w-categoryCard transition-transform hover:scale-105
-          max-sm:w-categoryCardsm max-sm:h-categoryCardsm
-         `}
-      >
+            flex flex-col justify-center items-center content-center
+            body-secondary drop-shadow hover:drop-shadow-xl 
+            w-categoryCard transition-transform hover:scale-105
+            max-sm:w-categoryCardsm max-sm:h-categoryCardsm
+         `} 
+      > 
           <CardBody>
             <Image
-                className='w-[70px]'
+                className='w-[70px] bg-red-500'
                 src={image}
-            /> 
-            <Text>{name}</Text>
+            />
+            <Text className=' text-sm text-ellipsis h-[50px] bg-red-400'>{name}</Text>
           </CardBody>
       </Card>
     </button>
