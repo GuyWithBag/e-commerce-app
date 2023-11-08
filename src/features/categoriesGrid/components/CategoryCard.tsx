@@ -21,12 +21,12 @@ export default function CategoryCard({productType}: Props) {
             max-sm:w-categoryCardsm max-sm:h-categoryCardsm
          `} 
       > 
-          <CardBody>
+          <CardBody className='flex flex-col justify-center items-center content-center'>
             <Image
-                className='w-[70px] bg-red-500'
+                className='w-[70px]'
                 src={image}
             />
-            <Text className=' text-sm text-ellipsis h-[50px] bg-red-400'>{name}</Text>
+            <Text className=' text-sm text-ellipsis h-[50px] '>{name}</Text>
           </CardBody>
       </Card>
     </button>
