@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 import Ratings from './Ratings'
-import AddToWishlistButton from '../../../components/AddToWish ListButton'
+import AddToWishlistButton from '../../../components/AddToWishListButton'
 import ShareButton from '../../../components/ShareButton'
 import { ProductModel } from '../../../data/productModel'
 
