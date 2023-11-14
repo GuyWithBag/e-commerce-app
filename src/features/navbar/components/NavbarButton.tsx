@@ -7,12 +7,9 @@ type Props = {
     children: any
 } & ButtonProps 
 
-export default function NavbarButton({ children, onPressed, variant }: Props) { 
-    if (onPressed != null) {
-        onPressed()
-    }
+export default function NavBarButton({ className, children, onClick, variant }: Props) { 
     return (
-        <Button variant={variant}> 
+        <Button color={'white'} variant={variant} className={className} onClick={onClick} > 
             {children}
         </Button>
     )

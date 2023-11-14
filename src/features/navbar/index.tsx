@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import NavbarButton from './components/NavbarButton'
+import NavbarButton from './components/NavBarButton'
 import { defaultTheme } from '../../themes/defaultTheme'
 import { AiOutlineHeart, AiOutlineMenu, AiOutlinePlus, AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai'
 import {

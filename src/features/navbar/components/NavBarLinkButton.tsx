@@ -1,7 +1,7 @@
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink, LinkProps, ButtonProps, Button, Text } from '@chakra-ui/react'
 import React from 'react'
-import NavbarButton from './NavbarButton'
+import NavbarButton from './NavBarButton'
 
 type Props = {
     children: any, 
