@@ -34,7 +34,7 @@ export default function NavbarMenu({ items, onCloseClick }: Props) {
                 <IconButton aria-label='close' icon={<AiOutlineClose />} onClick={onCloseClick}/>
             </Box>
             <Box className='px-10 flex flex-col gap-3'> 
-                <NavBarButton variant={'ghost'} className='flex flex-row justify-start items-start' onClick={() => setDarkMode(!isDarkMode)}>
+                <NavBarButton variant={'ghost'} className='!flex !flex-row !justify-start !items-center !p-1' onClick={() => setDarkMode(!isDarkMode)}>
                     <DarkModeToggle />
                     <Text color={'white'}>Dark Mode</Text>
                 </NavBarButton>

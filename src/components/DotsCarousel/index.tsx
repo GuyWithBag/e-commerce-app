@@ -44,7 +44,7 @@ export default function DotsCarousel({ items }: Props) {
         icon={<AiOutlineLeft 
           size={'70%'}
         />}
-        top={'50%'}
+        top={'40%'}
         onClick={() => updateIndex(activeIndex - 1)}
       />
       <IconButton 
@@ -55,7 +55,7 @@ export default function DotsCarousel({ items }: Props) {
         icon={<AiOutlineRight 
           size={'70%'}
         />}
-        top={'50%'}
+        top={'40%'}
         right={'0%'}
         onClick={() => updateIndex(activeIndex + 1)}
       />
@@ -63,7 +63,7 @@ export default function DotsCarousel({ items }: Props) {
         bottom={'0%'} 
         right={'28%'} 
         position={'absolute'}
-        className='grid grid-rows-1 grid-flow-col gap-2 justify-center items-center place-content-end ' 
+        className='grid grid-rows-1 grid-flow-col gap-2 justify-center items-center place-content-end max-sm:scale-75 max-sm:!right-[20%]' 
         zIndex={'10'}
       >
         {items.map((item, index) => (
